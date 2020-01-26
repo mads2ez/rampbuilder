@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8A171F5CE515787C8E778CA8 /* libPods-Ramp Builder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDB9E9649E3C7251DA98C82 /* libPods-Ramp Builder.a */; };
+		A784888B23DDAC5700CD8291 /* CalcParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = A784888A23DDAC5700CD8291 /* CalcParams.swift */; };
+		A784888D23DDAEB500CD8291 /* CalcParamsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A784888C23DDAEB500CD8291 /* CalcParamsStore.swift */; };
+		A784889523DDB09B00CD8291 /* CalcParamsStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A784889423DDB09B00CD8291 /* CalcParamsStoreTests.swift */; };
 		D697C5E023DA30A500F8FE4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D697C5DF23DA30A500F8FE4A /* AppDelegate.swift */; };
 		D697C5E223DA30A500F8FE4A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D697C5E123DA30A500F8FE4A /* SceneDelegate.swift */; };
 		D697C5E523DA30A500F8FE4A /* Ramp_Builder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D697C5E323DA30A500F8FE4A /* Ramp_Builder.xcdatamodeld */; };
@@ -33,8 +36,23 @@
 		D6C3938623DA3D310029F81F /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C3938423DA3D310029F81F /* GridView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A784889723DDB09B00CD8291 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D697C5D423DA30A500F8FE4A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D697C5DB23DA30A500F8FE4A;
+			remoteInfo = "Ramp Builder";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		25C3FD73C0297E8A4E6132D0 /* Pods-Ramp Builder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ramp Builder.debug.xcconfig"; path = "Target Support Files/Pods-Ramp Builder/Pods-Ramp Builder.debug.xcconfig"; sourceTree = "<group>"; };
+		A784888A23DDAC5700CD8291 /* CalcParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcParams.swift; sourceTree = "<group>"; };
+		A784888C23DDAEB500CD8291 /* CalcParamsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcParamsStore.swift; sourceTree = "<group>"; };
+		A784889223DDB09B00CD8291 /* RampBuilderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RampBuilderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A784889423DDB09B00CD8291 /* CalcParamsStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcParamsStoreTests.swift; sourceTree = "<group>"; };
+		A784889623DDB09B00CD8291 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC85D64F6DE85DA201FA3F79 /* Pods-Ramp Builder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ramp Builder.release.xcconfig"; path = "Target Support Files/Pods-Ramp Builder/Pods-Ramp Builder.release.xcconfig"; sourceTree = "<group>"; };
 		CDDB9E9649E3C7251DA98C82 /* libPods-Ramp Builder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Ramp Builder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D697C5DC23DA30A500F8FE4A /* Ramp Builder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ramp Builder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +83,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A784888F23DDB09B00CD8291 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D697C5D923DA30A500F8FE4A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -93,10 +118,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A784889323DDB09B00CD8291 /* RampBuilderTests */ = {
+			isa = PBXGroup;
+			children = (
+				A784889423DDB09B00CD8291 /* CalcParamsStoreTests.swift */,
+				A784889623DDB09B00CD8291 /* Info.plist */,
+			);
+			path = RampBuilderTests;
+			sourceTree = "<group>";
+		};
 		D697C5D323DA30A500F8FE4A = {
 			isa = PBXGroup;
 			children = (
 				D697C5DE23DA30A500F8FE4A /* Ramp Builder */,
+				A784889323DDB09B00CD8291 /* RampBuilderTests */,
 				D697C5DD23DA30A500F8FE4A /* Products */,
 				6C84CC2171487D5BF46705C4 /* Pods */,
 				7AC6A48394F96DC7285182B6 /* Frameworks */,
@@ -107,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				D697C5DC23DA30A500F8FE4A /* Ramp Builder.app */,
+				A784889223DDB09B00CD8291 /* RampBuilderTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -175,6 +211,8 @@
 			isa = PBXGroup;
 			children = (
 				D6C3936523DA388B0029F81F /* Calculator.swift */,
+				A784888A23DDAC5700CD8291 /* CalcParams.swift */,
+				A784888C23DDAEB500CD8291 /* CalcParamsStore.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -201,6 +239,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A784889123DDB09B00CD8291 /* RampBuilderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A784889923DDB09B00CD8291 /* Build configuration list for PBXNativeTarget "RampBuilderTests" */;
+			buildPhases = (
+				A784888E23DDB09B00CD8291 /* Sources */,
+				A784888F23DDB09B00CD8291 /* Frameworks */,
+				A784889023DDB09B00CD8291 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A784889823DDB09B00CD8291 /* PBXTargetDependency */,
+			);
+			name = RampBuilderTests;
+			productName = RampBuilderTests;
+			productReference = A784889223DDB09B00CD8291 /* RampBuilderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		D697C5DB23DA30A500F8FE4A /* Ramp Builder */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D697C5F323DA30AA00F8FE4A /* Build configuration list for PBXNativeTarget "Ramp Builder" */;
@@ -229,6 +285,10 @@
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Maxim Sivtcev";
 				TargetAttributes = {
+					A784889123DDB09B00CD8291 = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = D697C5DB23DA30A500F8FE4A;
+					};
 					D697C5DB23DA30A500F8FE4A = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
@@ -248,11 +308,19 @@
 			projectRoot = "";
 			targets = (
 				D697C5DB23DA30A500F8FE4A /* Ramp Builder */,
+				A784889123DDB09B00CD8291 /* RampBuilderTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A784889023DDB09B00CD8291 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D697C5DA23DA30A500F8FE4A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -291,6 +359,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A784888E23DDB09B00CD8291 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A784889523DDB09B00CD8291 /* CalcParamsStoreTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D697C5D823DA30A500F8FE4A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -305,7 +381,9 @@
 				D6C3936F23DA3B4A0029F81F /* PickerView.swift in Sources */,
 				D6C3936B23DA39110029F81F /* Helpers.swift in Sources */,
 				D697C5E023DA30A500F8FE4A /* AppDelegate.swift in Sources */,
+				A784888D23DDAEB500CD8291 /* CalcParamsStore.swift in Sources */,
 				D6C3937323DA3B570029F81F /* RampTextFieldView.swift in Sources */,
+				A784888B23DDAC5700CD8291 /* CalcParams.swift in Sources */,
 				D6C3937523DA3B960029F81F /* Modal.swift in Sources */,
 				D697C5E223DA30A500F8FE4A /* SceneDelegate.swift in Sources */,
 				D697C5E723DA30A500F8FE4A /* ContentView.swift in Sources */,
@@ -320,6 +398,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		A784889823DDB09B00CD8291 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D697C5DB23DA30A500F8FE4A /* Ramp Builder */;
+			targetProxy = A784889723DDB09B00CD8291 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		D697C5ED23DA30AA00F8FE4A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -332,6 +418,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A784889A23DDB09B00CD8291 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RampBuilderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.mads2ez.RampBuilderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ramp Builder.app/Ramp Builder";
+			};
+			name = Debug;
+		};
+		A784889B23DDB09B00CD8291 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RampBuilderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.mads2ez.RampBuilderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ramp Builder.app/Ramp Builder";
+			};
+			name = Release;
+		};
 		D697C5F123DA30AA00F8FE4A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -491,6 +615,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A784889923DDB09B00CD8291 /* Build configuration list for PBXNativeTarget "RampBuilderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A784889A23DDB09B00CD8291 /* Debug */,
+				A784889B23DDB09B00CD8291 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D697C5D723DA30A500F8FE4A /* Build configuration list for PBXProject "Ramp Builder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
