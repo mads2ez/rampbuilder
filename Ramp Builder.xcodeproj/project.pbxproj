@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		8A171F5CE515787C8E778CA8 /* libPods-Ramp Builder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDB9E9649E3C7251DA98C82 /* libPods-Ramp Builder.a */; };
 		A784888D23DDAEB500CD8291 /* GapParamsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A784888C23DDAEB500CD8291 /* GapParamsStore.swift */; };
-		A784889523DDB09B00CD8291 /* CalcParamsStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A784889423DDB09B00CD8291 /* CalcParamsStoreTests.swift */; };
+		A784889523DDB09B00CD8291 /* GapParamsStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A784889423DDB09B00CD8291 /* GapParamsStoreTests.swift */; };
 		D616C31B23E0B80600FE0A52 /* GapParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616C31A23E0B80600FE0A52 /* GapParams.swift */; };
 		D697C5E023DA30A500F8FE4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D697C5DF23DA30A500F8FE4A /* AppDelegate.swift */; };
 		D697C5E223DA30A500F8FE4A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D697C5E123DA30A500F8FE4A /* SceneDelegate.swift */; };
@@ -50,7 +50,7 @@
 		25C3FD73C0297E8A4E6132D0 /* Pods-Ramp Builder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ramp Builder.debug.xcconfig"; path = "Target Support Files/Pods-Ramp Builder/Pods-Ramp Builder.debug.xcconfig"; sourceTree = "<group>"; };
 		A784888C23DDAEB500CD8291 /* GapParamsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GapParamsStore.swift; sourceTree = "<group>"; };
 		A784889223DDB09B00CD8291 /* RampBuilderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RampBuilderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A784889423DDB09B00CD8291 /* CalcParamsStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcParamsStoreTests.swift; sourceTree = "<group>"; };
+		A784889423DDB09B00CD8291 /* GapParamsStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GapParamsStoreTests.swift; sourceTree = "<group>"; };
 		A784889623DDB09B00CD8291 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC85D64F6DE85DA201FA3F79 /* Pods-Ramp Builder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ramp Builder.release.xcconfig"; path = "Target Support Files/Pods-Ramp Builder/Pods-Ramp Builder.release.xcconfig"; sourceTree = "<group>"; };
 		CDDB9E9649E3C7251DA98C82 /* libPods-Ramp Builder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Ramp Builder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,7 +121,7 @@
 		A784889323DDB09B00CD8291 /* RampBuilderTests */ = {
 			isa = PBXGroup;
 			children = (
-				A784889423DDB09B00CD8291 /* CalcParamsStoreTests.swift */,
+				A784889423DDB09B00CD8291 /* GapParamsStoreTests.swift */,
 				A784889623DDB09B00CD8291 /* Info.plist */,
 			);
 			path = RampBuilderTests;
@@ -363,7 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A784889523DDB09B00CD8291 /* CalcParamsStoreTests.swift in Sources */,
+				A784889523DDB09B00CD8291 /* GapParamsStoreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,6 +1,6 @@
 //
-//  CalcParamsStoreTests.swift
-//  CalcParamsStoreTests
+//  GapParamsStoreTests.swift
+//  GapParamsStoreTests
 //
 //  Created by younke on 26.01.2020.
 //  Copyright © 2020 Maxim Sivtcev. All rights reserved.
