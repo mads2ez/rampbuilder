@@ -9,23 +9,6 @@
 import SwiftUI
 import Combine
 
-class Calculator {
-
-    func calculate(params: CalcParams) -> Double {
-        ///...
-        return 0.0
-    }
-}
-
-final class CalcParamsViewModel: ObservableObject {
-
-    @Published var params: CalcParams?
-
-    init(store: CalcParamsStore) {
-        self.params = store.get()
-    }
-}
-
 class GapCalculator: ObservableObject {
     
     @Published var gap: Double? =  UserDefaults.standard.double(forKey: "gap") {

@@ -29,6 +29,10 @@ extension Double {
 
         return Int(self)
     }
+    
+    func deg2rad() -> Double {
+        return self * .pi / 180
+    }
 }
 
 extension String {

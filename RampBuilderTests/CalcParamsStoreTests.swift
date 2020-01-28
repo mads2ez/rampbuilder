@@ -9,15 +9,15 @@
 import XCTest
 @testable import Ramp_Builder
 
-class CalcParamsStoreTests: XCTestCase {
+class GapParamsStoreTests: XCTestCase {
 
     var userDefaults: UserDefaults!
-    var sut: CalcParamsStore!
+    var sut: GapParamsStore!
 
     override func setUp() {
         userDefaults = UserDefaults(suiteName: #file)
         userDefaults.removePersistentDomain(forName: #file)
-        sut = CalcParamsUserDefaults(userDefaults: userDefaults)
+        sut = GapParamsUserDefaults(userDefaults: userDefaults)
     }
 
     override func tearDown() {
@@ -36,7 +36,7 @@ class CalcParamsStoreTests: XCTestCase {
     }
 
     func test_simple_set() {
-        let params = CalcParams()
+        let params = GapParams()
 
 //         when
         sut.set(params: params)
@@ -47,9 +47,9 @@ class CalcParamsStoreTests: XCTestCase {
     }
 
     func test_store_works_properly() {
-        let store = CalcParamsUserDefaults(userDefaults: userDefaults)
+        let store = GapParamsUserDefaults(userDefaults: userDefaults)
 
-        store.set(params: CalcParams())
+        store.set(params: GapParams())
 
         let retreived = sut.get()
         XCTAssertNotNil(retreived)

@@ -1,5 +1,5 @@
 //
-//  CalcParamsStore.swift
+//  GapParamsStore.swift
 //  Ramp Builder
 //
 //  Created by younke on 26.01.2020.
@@ -8,16 +8,16 @@
 
 import Foundation
 
-protocol CalcParamsStore {
+protocol GapParamsStore {
 
-    func set(params: CalcParams)
-    func get() -> CalcParams?
+    func set(params: GapParams)
+    func get() -> GapParams?
 }
 
-final class CalcParamsUserDefaults: CalcParamsStore {
+final class GapParamsUserDefaults: GapParamsStore {
 
     private enum Constants {
-        static let key = "CalcParamsStore.params"
+        static let key = "GapParamsStore.params"
     }
 
     let userDefaults: UserDefaults
@@ -32,7 +32,7 @@ final class CalcParamsUserDefaults: CalcParamsStore {
 
     // MARK: -
 
-    func set(params: CalcParams) {
+    func set(params: GapParams) {
         guard
             let encoded = try? JSONEncoder().encode(params),
             let jsonString = String(data: encoded, encoding: .utf8) else {
@@ -41,15 +41,11 @@ final class CalcParamsUserDefaults: CalcParamsStore {
         userDefaults.set(jsonString, forKey: Constants.key)
     }
 
-    enum MyError: Error {
-        case blabla
-    }
-
-    func get() -> CalcParams? {
+    func get() -> GapParams? {
         guard
             let json = userDefaults.string(forKey: Constants.key),
             let jsonData = json.data(using: .utf8),
-            let result = try? JSONDecoder().decode(CalcParams.self, from: jsonData) else {
+            let result = try? JSONDecoder().decode(GapParams.self, from: jsonData) else {
             return nil
         }
         return result
