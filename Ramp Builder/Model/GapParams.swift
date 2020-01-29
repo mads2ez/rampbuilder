@@ -20,7 +20,7 @@ struct LandingParams: Codable {
     var table: Double = 0
 }
 
-class GapParams: Codable {
+struct GapParams: Codable {
     var takeoff: TakeoffParams = .init()
     var landing: LandingParams = .init()
     var gap: Double = 0
@@ -100,10 +100,13 @@ extension GapParams {
 
 
 final class GapParamsViewModel: ObservableObject {
-
     @Published var params: GapParams?
-
+    
     init(store: GapParamsStore) {
-        self.params = store.get()
+         self.params = store.get()
+     }
+    
+    init(params: GapParams) {
+        self.params = params
     }
 }
