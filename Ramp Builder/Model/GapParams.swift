@@ -97,16 +97,3 @@ extension GapParams {
         }
     }
 }
-
-
-final class GapParamsViewModel: ObservableObject {
-    @Published var params: GapParams?
-    
-    init(store: GapParamsStore) {
-         self.params = store.get()
-     }
-    
-    init(params: GapParams) {
-        self.params = params
-    }
-}

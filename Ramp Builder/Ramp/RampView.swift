@@ -15,21 +15,13 @@ struct RampView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                GridView(step: self.calcScale(width: geometry.size.width, height: geometry.size.height).step)
+                GridView(step: self.ramp.calcScale(width: geometry.size.width, height: geometry.size.height).step)
                 
-                RampShape(startAngle: .degrees(0), endAngle: .degrees(360 - (self.ramp.params?.takeoff.angle ?? 0)), radius: self.ramp.params?.takeoff.radius ?? 0, clockwise: false, scale: self.calcScale(width: geometry.size.width, height: geometry.size.height).scale)
+                RampShape(startAngle: .degrees(0), endAngle: self.ramp.rampangle, radius: self.ramp.params?.radius ?? 0, clockwise: false, scale: self.ramp.calcScale(width: geometry.size.width, height: geometry.size.height).scale)
                     .fill(Color.blue)
                     .frame(width: geometry.size.width, height: geometry.size.height)
             }
         }
-    }
-    
-    
-    func calcScale(width: CGFloat, height: CGFloat) -> (scale: Int, step: CGFloat) {
-        let scale = Int(1 + (self.ramp.params?.takeoff.length ?? 0))
-        let step = width < height ? width / CGFloat(scale) : height / CGFloat(scale)
-                
-        return (scale: scale, step: step)
     }
 }
 

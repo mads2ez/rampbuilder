@@ -16,8 +16,8 @@ struct HorizontalLineView: View {
         GeometryReader { geometry in
             ZStack {
                 Path { path in
-                    path.move(to: CGPoint(x: 0, y: 0))
-                    path.addLine(to: CGPoint(x: geometry.size.width, y: 0))
+                    path.move(to: CGPoint(x: 0, y: geometry.size.height))
+                    path.addLine(to: CGPoint(x: geometry.size.width, y: geometry.size.height))
                 }
                 .stroke(self.color, lineWidth: 0.5)
                 
@@ -70,8 +70,8 @@ struct GridView: View {
         let stepsY = Array(0..<Int(geometry.size.height / step))
         
         return ZStack(alignment: .bottomLeading) {
-            Rectangle()
-                .stroke(color, lineWidth: 0.5)
+//            Rectangle()
+//                .stroke(color, lineWidth: 0.5)
             
             VStack(spacing: 0) {
                 ForEach(stepsY.reversed(), id: \.self) { mark in
