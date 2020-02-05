@@ -8,9 +8,9 @@
 
 import SwiftUI
 
-final class GapParamsViewModel: ObservableObject {
+final class RampViewModel: ObservableObject {
     @Published var params: TakeoffParams?
-    
+
     init(store: GapParamsStore) {
         self.params = store.get()?.takeoff
      }
@@ -30,5 +30,15 @@ final class GapParamsViewModel: ObservableObject {
         let step = width < height ? width / CGFloat(scale) : height / CGFloat(scale)
                 
         return (scale: scale, step: step)
+    }
+
+    func calcScale(size: CGSize) -> (scale: Int, step: CGFloat) {
+        return calcScale(width: size.width, height: size.height)
+    }
+
+    var step: (_ size: CGSize) -> CGFloat {
+        return {
+            return self.calcScale(size: $0).step
+        }
     }
 }

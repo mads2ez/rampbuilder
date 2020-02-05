@@ -10,14 +10,14 @@ import SwiftUI
 
 struct RampView: View {
     
-    @EnvironmentObject var ramp: GapParamsViewModel
+    @EnvironmentObject var viewModel: RampViewModel
     
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                GridView(step: self.ramp.calcScale(width: geometry.size.width, height: geometry.size.height).step)
+                GridView(step: self.viewModel.step(geometry.size))
                 
-                RampShape(startAngle: .degrees(0), endAngle: self.ramp.rampangle, radius: self.ramp.params?.radius ?? 0, clockwise: false, scale: self.ramp.calcScale(width: geometry.size.width, height: geometry.size.height).scale)
+                RampShape(startAngle: .degrees(0), endAngle: self.viewModel.rampangle, radius: self.viewModel.params?.radius ?? 0, clockwise: false, scale: self.viewModel.calcScale(width: geometry.size.width, height: geometry.size.height).scale)
                     .fill(Color.blue)
                     .frame(width: geometry.size.width, height: geometry.size.height)
             }
@@ -29,7 +29,7 @@ struct RampView: View {
 struct RampView_Previews: PreviewProvider {
     static var previews: some View {
         RampView()
-            .environmentObject(GapParamsViewModel(params: GapParams.defaultParams))
+            .environmentObject(RampViewModel(params: GapParams.defaultParams))
         .frame(width: 300, height: 150)
             .environment(\.colorScheme, .dark)
     }
