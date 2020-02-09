@@ -30,7 +30,7 @@ extension Double {
         return Int(self)
     }
     
-    func deg2rad() -> Double {
+    func toRadians() -> Double {
         return self * .pi / 180
     }
 }

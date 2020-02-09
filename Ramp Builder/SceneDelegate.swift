@@ -24,12 +24,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
-        let jump = GapCalculator()
 
-        let contentView = ContentView().environment(\.managedObjectContext, context)
+        let gap: GapParams
+        let takeoff = TakeoffParams()
+        
+        if let store = GapParamsUserDefaults().get() {
+            gap = store
+        } else {
+            gap.takeoff = takeoff
+        }
+        
+        let contentView = ContentView()
             .environment(\.managedObjectContext, context)
-            .environmentObject(jump)
-            .environmentObject(UserData(jump))
+        
+        let gapView =  GapView()
+        
+        let rampView = RampView()
         
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

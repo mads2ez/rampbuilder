@@ -9,125 +9,154 @@
 import SwiftUI
 import Combine
 
-class GapCalculator: ObservableObject {
+enum GapCalculator {
     
-    @Published var gap: Double? =  UserDefaults.standard.double(forKey: "gap") {
-        didSet {
-            UserDefaults.standard.set(self.gap, forKey: "gap")
-        }
+    static func calcTakeoffRadius(height: Double, angle: Double) -> Double {
+        return round(height / (2 * (sin(angle.toRadians() / 2) * sin(angle.toRadians() / 2))) * 100) / 100;
     }
     
-    @Published var table: Double? = UserDefaults.standard.double(forKey: "table") {
-        didSet {
-            UserDefaults.standard.set(self.table, forKey: "table")
-        }
+    static func calcTakeoffLength(height: Double, angle: Double) -> Double {
+        return (height * (1/sin(angle.toRadians()) + 1/tan(angle.toRadians())))
     }
     
-    @Published var takeoffHeight: Double = UserDefaults.standard.double(forKey: "takeoffHeight") {
-       didSet {
-           UserDefaults.standard.set(self.takeoffHeight, forKey: "takeoffHeight")
-       }
+    static func calcLandingLength(height: Double, angle: Double) -> Double {
+        return height * tan((90 - angle).toRadians())
     }
     
-    @Published var takeoffAngle: Double = UserDefaults.standard.double(forKey: "takeoffAngle") {
-        didSet {
-            UserDefaults.standard.set(self.takeoffAngle, forKey: "takeoffAngle")
-        }
-    }
-    
-    @Published var landingHeight: Double? = UserDefaults.standard.double(forKey: "landingHeight") {
-        didSet {
-            UserDefaults.standard.set(self.landingHeight, forKey: "landingHeight")
-        }
-    }
-    
-    @Published var landingAngle: Double? = UserDefaults.standard.double(forKey: "landingAngle") {
-        didSet {
-            UserDefaults.standard.set(self.landingAngle, forKey: "landingAngle")
-        }
-    }
-    
-    @Published var speed: Double? = UserDefaults.standard.double(forKey: "speed") {
-       didSet {
-           UserDefaults.standard.set(self.speed, forKey: "speed")
-        }
-    }
-    
-    
-    init(gap: Double, table: Double, takeoffHeight: Double, takeoffAngle: Double, landingHeight: Double, landingAngle: Double, speed: Double) {
-        self.gap = gap
-        self.table = table
-        self.takeoffHeight = takeoffHeight
-        self.takeoffAngle = takeoffAngle
-        self.landingHeight = landingHeight
-        self.landingAngle = landingAngle
-        self.speed = speed
-    }
-    
-    init(height: Double, angle: Double) {
-        self.takeoffHeight = height
-        self.takeoffAngle = angle
-    }
-    
-    convenience init() {
-        self.init(height: 2, angle: 60)
-    }
-    
-    var takeoffRadius: Double {
-        return round(takeoffHeight / (2 * (sin(deg2rad(takeoffAngle) / 2) * sin(deg2rad(takeoffAngle) / 2))) * 100) / 100;
-    }
-    
-    var takeoffLength: Double {
-        return (takeoffHeight * (1/sin(deg2rad(takeoffAngle)) + 1/tan(deg2rad(takeoffAngle))))
-    }
-    
-    var landingLength: Double {
-        return (landingHeight ?? 0) * tan(deg2rad(90 - (landingAngle ?? 0)))
-    }
-    
-    private func deg2rad(_ number: Double) -> Double {
-        return number * .pi / 180
-    }
-    
-    func findRoot() -> Double {
-        // ????
-        let v0 = (self.speed ?? 0) * 1000 / 3600
-        let v0x = v0 * cos(self.takeoffAngle * .pi / 180)
-        let v0y = v0 * sin(self.takeoffAngle * .pi / 180)
-        let L = pow(v0,2) * sin(self.takeoffAngle * .pi / 180 * 2) / 9.8
-        let H = pow(v0,2) * pow(sin(self.takeoffAngle * .pi / 180), 2) / (2 * 9.8)
-        
-        
-        let dp = abs((self.landingHeight ?? 0) / tan((self.landingAngle ?? 0) * .pi / 180))
-        
-        let a = -9.8 / (2 * pow(v0x, 2))
-        let b = v0y / v0x + (self.landingHeight ?? 0) / dp
-        let c1 = (self.landingHeight ?? 0) * (self.gap ?? 0) / dp
-        let c2 = (self.landingHeight ?? 0) + c1
-        
-        let c = -c2 + self.takeoffHeight
-        
-        let diskr = b * b - 4 * a * c
-        
-        print("v0 = \(v0), v0x = \(v0x), L = \(L), H = \(H), a = \(a), b = \(b), c = \(c), diskr = \(diskr)")
-        
-        if (diskr<0) {
-            print("Нет пересечения траектории с приземлением! \(diskr)")
-            return 0
-        } else {
-            
-            // root of the quadratic equation
-            let xroot = (-b - sqrt(diskr))/(2*a)
-            let vk = sqrt(v0x*v0x + pow((v0y - 9.8 * xroot / v0x),2))
-            let fi = atan((v0y - 9.8 * xroot / v0x) / v0x)
-            
-            print("xroot \(xroot), vk = \(vk), fi = \(fi)")
-            
-            // landing stiffness
-            let stiffness = pow(vk * sin(abs(abs(fi) - ((self.landingAngle ?? 0) * .pi / 180 ))), 2) / (2 * 9.8)
-                        
-            return stiffness
-        }
-    }
+    static func calcStiffness(speed: Double, gap: Double, angleTakeoff: Double, angleLanding: Double, heightLanding: Double, heightTakeoff: Double) ->  Double {
+         // ????
+         let v0 = speed * 1000 / 3600
+         let v0x = v0 * cos(angleTakeoff.toRadians())
+         let v0y = v0 * sin(angleTakeoff.toRadians())
+         let L = pow(v0,2) * sin(angleTakeoff.toRadians() * 2) / 9.8
+         let H = pow(v0,2) * pow(sin(angleTakeoff.toRadians()), 2) / (2 * 9.8)
+         
+         
+         let dp = abs(heightLanding / tan(angleLanding.toRadians()))
+         
+         let a = -9.8 / (2 * pow(v0x, 2))
+         let b = v0y / v0x + heightLanding / dp
+         let c1 = heightLanding * gap / dp
+         let c2 = heightLanding + c1
+         
+         let c = -c2 + heightTakeoff
+         
+         let diskr = b * b - 4 * a * c
+         
+         print("v0 = \(v0), v0x = \(v0x), L = \(L), H = \(H), a = \(a), b = \(b), c = \(c), diskr = \(diskr)")
+         
+         if (diskr<0) {
+             print("Нет пересечения траектории с приземлением! \(diskr)")
+             return 0
+         } else {
+             
+             // root of the quadratic equation
+             let xroot = (-b - sqrt(diskr))/(2*a)
+             let vk = sqrt(v0x*v0x + pow((v0y - 9.8 * xroot / v0x),2))
+             let fi = atan((v0y - 9.8 * xroot / v0x) / v0x)
+             
+             print("xroot \(xroot), vk = \(vk), fi = \(fi)")
+             
+             // landing stiffness
+             let stiffness = pow(vk * sin(abs(abs(fi) - angleLanding.toRadians())), 2) / (2 * 9.8)
+                         
+             return stiffness
+         }
+     }
 
+/*
+    Private Sub CommandButton1_Click()
+    ActiveSheet.Unprotect (777)
+    On Error GoTo err_msg
+
+    L = Range("C4").Value 'гэп
+    L1 = Range("C5").Value 'стол
+    H = Range("C6").Value 'высота вылета
+    H1 = Range("C7").Value 'высота приземления
+    A = Range("C8").Value 'угол вылета
+    A1 = Range("C9").Value 'угол приземления
+    V = Range("C10").Value 'скорость
+
+    If L = "" Then
+    L = 0
+    L1 = 0
+    Range("C4") = L
+    Range("C5") = L1
+    End If
+
+    If L1 = "" Then L1 = 0: Range("C5") = L1
+    If H = "" Then H = 0: Range("C6") = H
+    If H1 = "" Then H1 = 0: Range("C7") = H1
+    If A = "" Then A = 0: Range("C8") = A
+    If A1 = "" Then A1 = 0: Range("C9") = A1
+    If V = "" Or V = 0 Then MsgBox ("прыжок на месте"): Range("C16:C23") = "": End
+
+    If hight(H, L - L1, A, V) < H1 Then
+    Range("C16:C23") = "НЕДОЛЕТ"
+    End
+    End If
+
+    If L1 > 0 And hight(H, L, A, V) < H1 Then
+    bx = Tan(A * 3.14159265358979 / 180)
+    cx = H - H1
+    B1 = dist(-9.82 / (2 * (V * 0.28) ^ 2 * Cos(A * 3.14159265358979 / 180) ^ 2), bx, cx)
+    H2 = H1
+    Ag = 0
+    Else
+    bx = Tan(A * 3.14159265358979 / 180) + Tan(A1 * 3.14159265358979 / 180)
+    cx = H - H1 - L * Tan(A1 * 3.14159265358979 / 180)
+    B1 = dist(-9.82 / (2 * (V * 0.28) ^ 2 * (Cos(A * 3.14159265358979 / 180)) ^ 2), bx, cx)
+    H2 = H1 - (B1 - L) * Tan(A1 * 3.14159265358979 / 180)
+    Ag = A1
+    End If
+
+    V2 = Sqr((V * 0.28) ^ 2 + 2 * 9.82 * (H - H2)) / 0.28
+    X1 = Sqr((V * 0.28) ^ 2 * Sin(A * 3.14159265358979 / 180) ^ 2 + 2 * 9.82 * (H - H2)) / (V2 * 0.28)
+    A2 = Atn(X1 / Sqr(-X1 * X1 + 1)) * 180 / 3.14159265358979
+    HMAX = (V * 0.28) ^ 2 * (Sin(A * 3.14159265358979 / 180)) ^ 2 / (2 * 9.82) + H
+    G = 0.316 * V2 * Sin((A2 - Ag) * 3.14159265358979 / 180)
+    Vv = V2 * Cos((A2 - Ag) * 3.14159265358979 / 180)
+
+    If A <= 0 Then
+    VRaz = V
+    Else
+    VRaz = Sqr((V * 0.28) ^ 2 + 2 * 9.82 * H) / 0.28
+    End If
+
+    Range("C16") = B1 'общий пролет
+    Range("C17") = H2 'высота точки приземления
+    Range("C19") = V2 'скорость приземлени
+    Range("C22") = A2 'угол падения
+    Range("C18") = HMAX 'максимальная высота
+    Range("C21") = VRaz 'необходимая скорость разгона
+    Range("C23") = G 'жесткость приземления (G=5 - эквивалентно приземлению на плоскач с дропа высотой 1 м)
+    Range("C20") = Vv 'скорость выката
+
+    ActiveSheet.Protect (777)
+    ActiveSheet.EnableSelection = xlUnlockedCells
+
+    End
+
+    err_msg:
+    MsgBox "Ошибка при рассчетах"
+    ActiveSheet.Protect (777)
+    ActiveSheet.EnableSelection = xlUnlockedCells
+    End Sub
+    Private Sub Worksheet_SelectionChange(ByVal Target As Range)
+    On Error GoTo err_
+    Set isect = Application.Intersect(Target, Range("C4:C10"))
+    If Not isect Is Nothing Then
+    ActiveSheet.Unprotect (777)
+    Range(Cells(13, 3), Cells(23, 3)).Value = ""
+    ActiveSheet.Protect (777)
+    End If
+    err_:
+    End Sub
+    Function hight(Hf, X, af, Vf)
+    hight = Hf + X * Tan(af * 3.14159265358979 / 180) - 9.82 * X ^ 2 / (2 * (Vf * 0.28) ^ 2 * Cos(af * 3.14159265358979 / 180) ^ 2)
+    End Function
+    Function dist(af, bf, cf)
+    dist = (-bf - Sqr(bf ^ 2 - 4 * af * cf)) / (2 * af)
+    End Function
+ */
 }
