@@ -33,6 +33,11 @@ extension GapParams {
         var params = GapParams()
         params.takeoff.height = 2.0
         params.takeoff.angle = 60
+        params.landing.height = 2.0
+        params.landing.angle = 40
+        params.landing.table = 0.5
+        params.gap = 2
+        params.speed = 20
         return params
     }()
 }

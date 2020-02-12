@@ -8,8 +8,9 @@
 
 import SwiftUI
 
-class GapViewModel: ObservableObject {
-    let gapParams: GapParams
+class GapViewModel {
+    var gapParams: GapParams
+    let store = GapParamsUserDefaults()
     
     init(params: GapParams) {
         self.gapParams = params
@@ -17,6 +18,10 @@ class GapViewModel: ObservableObject {
     
     convenience init(store: GapParamsStore) {
         self.init(params: store.get() ?? GapParams.defaultParams)
+    }
+    
+    func refresh() {
+        self.gapParams = store.get() ?? GapParams.defaultParams
     }
     
     // Helpers

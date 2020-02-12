@@ -136,6 +136,7 @@ class InputViewModel: ObservableObject {
         
         store.set(params: params)
 
+        ContentViewModel(store: store)
         
         print("height \(self.params.takeoff.height), angle \(self.params.takeoff.angle), land height \(self.params.landing.height), land angle \(self.params.landing.angle)")
     }

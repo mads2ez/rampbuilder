@@ -16,38 +16,32 @@ struct ContentView: View {
     }
     
     var body: some View {
-            TabView {
-                ScrollView() {
-                    InputView(viewModel: viewModel.inputViewModel)
-                }.onTapGesture {
-                    UIApplication.shared.endEditing()
+        TabView {
+            InputView(viewModel: viewModel.inputViewModel)
+                .onTapGesture {
+                UIApplication.shared.endEditing()
                 }
-                    .tabItem {
-                        Image(systemName: "1.circle")
-                        Text("Set")
-                    }.tag(0)
-                
-                HStack(alignment: .bottom) {
-                    GapView(viewModel: viewModel.gapViewModel)
-                        .frame(minWidth: 200, maxWidth: .infinity, minHeight: 100, maxHeight: .infinity)
-                        .padding()
-                }
-                    .tabItem {
-                        Image(systemName: "2.circle")
-                        Text("Gap")
-                    }.tag(1)
-                
-                HStack(alignment: .bottom) {
-                    RampView(viewModel: viewModel.rampViewModel)
-                        .frame(minWidth: 200, maxWidth: .infinity, minHeight: 100, maxHeight: .infinity)
-                        .padding()
-                }
-                    .tabItem {
-                        Image(systemName: "3.circle")
-                        Text("Ramp")
-                    }.tag(2)
-            }
-
+                .tabItem {
+                    Image(systemName: "1.circle")
+                    Text("Set")
+                }.tag(0)
+            
+            GapView(viewModel: viewModel.gapViewModel)
+                .frame(minWidth: 200, maxWidth: .infinity, minHeight: 100, maxHeight: .infinity)
+                .padding()
+                .tabItem {
+                    Image(systemName: "2.circle")
+                    Text("Gap")
+                }.tag(1)
+            
+            RampView(viewModel: viewModel.rampViewModel)
+                .frame(minWidth: 200, maxWidth: .infinity, minHeight: 100, maxHeight: .infinity)
+                .padding()
+                .tabItem {
+                    Image(systemName: "3.circle")
+                    Text("Ramp")
+                }.tag(2)
+        }
     }
 }
 

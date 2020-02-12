@@ -16,44 +16,46 @@ struct InputView: View {
     }
     
     var body: some View {
-        VStack {
-            
+        ScrollView() {
             VStack {
-                RampTextFieldView(title: "Takeoff Height", placeholder: "Meters", value: self.$viewModel.takeoffHeight).padding(.bottom, 10)
                 
-                RampPickerView(title: "Takeoff Angle", value: self.$viewModel.takeoffAngle).padding(.bottom, 10)
+                VStack {
+                    RampTextFieldView(title: "Takeoff Height", placeholder: "Meters", value: self.$viewModel.takeoffHeight).padding(.bottom, 10)
+                    
+                    RampPickerView(title: "Takeoff Angle", value: self.$viewModel.takeoffAngle).padding(.bottom, 10)
+                    
+                    RampTextFieldView(title: "Gap distance", placeholder: "Meters", value: self.$viewModel.gap).padding(.bottom, 10)
+                    
+                    RampTextFieldView(title: "Table", placeholder: "Meters", value: self.$viewModel.table).padding(.bottom, 10)
+                    
+                    RampTextFieldView(title: "Landing Height", placeholder: "Meters", value: self.$viewModel.landingHeight).padding(.bottom, 10)
+                    
+                    RampPickerView(title: "Landing Angle", value: self.$viewModel.landingAngle).padding(.bottom, 10)
+                    
+                    RampTextFieldView(title: "Speed", placeholder: "m/s", value: self.$viewModel.speed).padding(.bottom, 10)
+                }
+                .padding()
                 
-                RampTextFieldView(title: "Gap distance", placeholder: "Meters", value: self.$viewModel.gap).padding(.bottom, 10)
-                
-                RampTextFieldView(title: "Table", placeholder: "Meters", value: self.$viewModel.table).padding(.bottom, 10)
-                
-                RampTextFieldView(title: "Landing Height", placeholder: "Meters", value: self.$viewModel.landingHeight).padding(.bottom, 10)
-                
-                RampPickerView(title: "Landing Angle", value: self.$viewModel.landingAngle).padding(.bottom, 10)
-                
-                RampTextFieldView(title: "Speed", placeholder: "m/s", value: self.$viewModel.speed).padding(.bottom, 10)
-            }
-            .padding()
-            
-            HStack {
-                Spacer()
+                HStack {
+                    Spacer()
 
-                Button(action: {
-                    self.viewModel.saveInput()
-                    UIApplication.shared.endEditing()
-                }, label: {
-                    Text("Calculate Jump")
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .padding()
-                        .accentColor(Color.white)
-                        .background(self.viewModel.isValid ? Color.blue : Color.gray)
-                        .cornerRadius(15)
-                        .padding(.horizontal, 20)
-                }).disabled(self.viewModel.isValid == false)
+                    Button(action: {
+                        self.viewModel.saveInput()
+                        UIApplication.shared.endEditing()
+                    }, label: {
+                        Text("Calculate Jump")
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .padding()
+                            .accentColor(Color.white)
+                            .background(self.viewModel.isValid ? Color.blue : Color.gray)
+                            .cornerRadius(15)
+                            .padding(.horizontal, 20)
+                    }).disabled(self.viewModel.isValid == false)
 
-                Spacer()
+                    Spacer()
+                }
+                
             }
-            
         }
             .onTapGesture {
                 UIApplication.shared.endEditing()

@@ -9,7 +9,9 @@
 import SwiftUI
 
 struct GapView: View {
-    @ObservedObject var viewModel: GapViewModel
+    @EnvironmentObject var gapState: GapState
+    
+    var viewModel: GapViewModel
     
     init(viewModel: GapViewModel) {
         self.viewModel = viewModel
@@ -28,6 +30,7 @@ struct GapView: View {
             
             LegendView(viewModel: LegendViewModel(params: self.viewModel.gapParams))
         }
+        .onAppear(perform: viewModel.refresh)
     }
 }
 
