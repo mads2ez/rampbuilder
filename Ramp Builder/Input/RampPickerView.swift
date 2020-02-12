@@ -1,5 +1,5 @@
 //
-//  RampPickerCellView.swift
+//  RampPickerView.swift
 //  Ramp Builder
 //
 //  Created by Madsbook on 23.01.2020.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct RampPickerCellView: View {
+struct RampPickerView: View {
     @Environment(\.viewController) private var viewControllerHolder: ViewControllerHolder
     private var viewController: UIViewController? {
         self.viewControllerHolder.value
@@ -45,6 +45,6 @@ struct RampPickerCellView: View {
 struct RampPickerCellView_Previews: PreviewProvider {
     @State static var val = 2
     static var previews: some View {
-        RampPickerCellView(title: "Angle", value: $val)
+        RampPickerView(title: "Angle", value: $val)
     }
 }

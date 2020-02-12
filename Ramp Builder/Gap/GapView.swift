@@ -9,38 +9,31 @@
 import SwiftUI
 
 struct GapView: View {
-    @EnvironmentObject var jump: GapCalculator
+    @ObservedObject var viewModel: GapViewModel
+    
+    init(viewModel: GapViewModel) {
+        self.viewModel = viewModel
+    }
         
     var body: some View {
         GeometryReader { geometry in
-            GridView(step: self.calcScale(width: geometry.size.width, height: geometry.size.height).step, color: Color.gray)
+            GridView(step: self.viewModel.step(geometry.size), color: Color.gray)
             
-            GapShape(jump: self.jump, scale: self.calcScale(width: geometry.size.width, height: geometry.size.height).scale)
+            GapShape(viewModel: GapShapeModel(params: self.viewModel.gapParams, scale: self.viewModel.scale(geometry.size)))
                 .stroke(Color.blue, lineWidth: 2)
                 .frame(width: geometry.size.width, height: geometry.size.height)
             
-            Trajectory(jump: self.jump, step: self.calcScale(width: geometry.size.width, height: geometry.size.height).step)
+            Trajectory(viewModel: TrajectoryViewModel(params: self.viewModel.gapParams, step: self.viewModel.step(geometry.size)))
                 .stroke(Color.green, lineWidth: 2)
             
-            LegendView(jump: self.jump)
+            LegendView(viewModel: LegendViewModel(params: self.viewModel.gapParams))
         }
-    }
-    
-    func calcScale(width: CGFloat, height: CGFloat) -> (scale: Int, step: CGFloat) {
-        let ramplength = 1 + self.jump.takeoffLength + (self.jump.gap ?? 0)
-        let landlength = self.jump.landingLength
-        let scale = Int(ramplength + landlength)
-        
-        let step = width / CGFloat(scale)
-                
-        return (scale: scale, step: step)
     }
 }
 
 struct GapView_Previews: PreviewProvider {
     static var previews: some View {
-        GapView()
-            .environmentObject(GapCalculator(gap: 2, table: 1, takeoffHeight: 2, takeoffAngle: 60, landingHeight: 2, landingAngle: 30, speed: 20))
+        GapView(viewModel: GapViewModel(params: GapParams.defaultParams))
             .frame(width: 300, height: 150)
     }
 }

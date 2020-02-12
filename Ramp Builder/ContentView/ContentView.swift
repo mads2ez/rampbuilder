@@ -9,13 +9,16 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var jump: GapCalculator
+    var viewModel: ContentViewModel
+    
+    init(viewModel: ContentViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
             TabView {
                 ScrollView() {
-                    InputView()
-                        .environmentObject(jump)
+                    InputView(viewModel: viewModel.inputViewModel)
                 }.onTapGesture {
                     UIApplication.shared.endEditing()
                 }
@@ -25,9 +28,8 @@ struct ContentView: View {
                     }.tag(0)
                 
                 HStack(alignment: .bottom) {
-                    GapView()
+                    GapView(viewModel: viewModel.gapViewModel)
                         .frame(minWidth: 200, maxWidth: .infinity, minHeight: 100, maxHeight: .infinity)
-                        .environmentObject(jump)
                         .padding()
                 }
                     .tabItem {
@@ -36,9 +38,8 @@ struct ContentView: View {
                     }.tag(1)
                 
                 HStack(alignment: .bottom) {
-                    RampView()
+                    RampView(viewModel: viewModel.rampViewModel)
                         .frame(minWidth: 200, maxWidth: .infinity, minHeight: 100, maxHeight: .infinity)
-                        .environmentObject(jump)
                         .padding()
                 }
                     .tabItem {
@@ -53,8 +54,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
-            .environmentObject(GapCalculator(height: 2, angle: 60))
+        ContentView(viewModel: ContentViewModel(params: GapParams.defaultParams))
     }
 }
 

@@ -9,9 +9,12 @@
 import SwiftUI
 
 struct Trajectory: Shape {
-
-    var jump: GapCalculator
-    var step: CGFloat
+    
+    var viewModel: TrajectoryViewModel
+    
+    init(viewModel: TrajectoryViewModel) {
+        self.viewModel = viewModel
+    }
     
     // Flight trajectory
     func path(in rect: CGRect) -> Path {
@@ -21,21 +24,15 @@ struct Trajectory: Shape {
         
         var path = Path()
         
-        path.move(to: CGPoint(x: CGFloat(self.jump.takeoffLength) * step, y: rect.maxY - CGFloat(self.jump.takeoffHeight) * step))
+        path.move(to: CGPoint(x: self.viewModel.takeoffLength * viewModel.step, y: rect.maxY - CGFloat(self.viewModel.gapParams.takeoff.height) * viewModel.step))
          
         for i in data {
-            if rect.maxY - CGFloat(self.jump.takeoffHeight) * step - step * CGFloat(calcParabola(x: Double(i))) < rect.maxY && CGFloat(self.jump.takeoffLength) * step + CGFloat(i) * step < rect.maxX {
+            if rect.maxY - CGFloat(viewModel.gapParams.takeoff.height) * viewModel.step - viewModel.step * viewModel.calcParabola(x: Double(i)) < rect.maxY && viewModel.takeoffLength * viewModel.step + CGFloat(i) * viewModel.step < rect.maxX {
                 
-                path.addLine(to: CGPoint(x: CGFloat(self.jump.takeoffLength) * step + CGFloat(i) * step, y: rect.maxY - CGFloat(self.jump.takeoffHeight) * step - step * CGFloat(calcParabola(x: Double(i)))))
+                path.addLine(to: CGPoint(x: self.viewModel.takeoffLength * viewModel.step + CGFloat(i) * viewModel.step, y: rect.maxY - CGFloat(self.viewModel.gapParams.takeoff.height) * viewModel.step - viewModel.step * viewModel.calcParabola(x: Double(i))))
             }
         }
         
         return path
-    }
-    
-    func calcParabola(x: Double) -> (Double) {
-        let result = (x * tan(self.jump.takeoffAngle * .pi / 180)) - (9.8 * pow(x, 2) / (2 * pow((self.jump.speed ?? 0) * 0.28, 2) * pow(cos(self.jump.takeoffAngle * .pi / 180), 2)))
-        
-        return result
     }
 }

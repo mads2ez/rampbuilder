@@ -21,12 +21,22 @@ final class RampViewModel: ObservableObject {
     
     // Helpers
     
-    var rampangle: Angle {
+    var startAngle: Angle = .degrees(0)
+    
+    var rampAngle: Angle {
         return .degrees(360 - (self.params?.angle ?? 0))
     }
     
+    var rampRadius: Double {
+        GapCalculator.calcTakeoffRadius(height: self.params?.height ?? 0, angle: params?.angle ?? 0)
+    }
+    
+    var rampLength: Double {
+        GapCalculator.calcTakeoffLength(height: params?.height ?? 0, angle: params?.angle ?? 0)
+    }
+    
     func calcScale(width: CGFloat, height: CGFloat) -> (scale: Int, step: CGFloat) {
-        let scale = Int(1 + (self.params?.length ?? 0))
+        let scale = Int(1 + rampLength)
         let step = width < height ? width / CGFloat(scale) : height / CGFloat(scale)
                 
         return (scale: scale, step: step)
@@ -39,6 +49,12 @@ final class RampViewModel: ObservableObject {
     var step: (_ size: CGSize) -> CGFloat {
         return {
             return self.calcScale(size: $0).step
+        }
+    }
+    
+    var scale: (_ size: CGSize) -> Int {
+        return {
+            return self.calcScale(size: $0).scale
         }
     }
 }

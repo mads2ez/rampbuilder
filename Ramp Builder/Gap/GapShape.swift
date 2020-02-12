@@ -9,18 +9,18 @@
 import SwiftUI
 
 struct GapShape: Shape {
-    var jump: GapCalculator
-    var scale: Int
+    var viewModel: GapShapeModel
+    
+    init(viewModel: GapShapeModel) {
+        self.viewModel = viewModel
+    }
     
     func path(in rect: CGRect) -> Path {
         
-        // iOS scale adjustment
         let rotationAdjustment = Angle.degrees(270)
         let modifiedStart = Angle.degrees(0) - rotationAdjustment
-        let modifiedEnd = Angle.degrees(360-self.jump.takeoffAngle) - rotationAdjustment
-        let modifiedRadius = rect.width / CGFloat(self.scale) * CGFloat(jump.takeoffRadius)
-        
-        let step = rect.width / CGFloat(self.scale)
+        let modifiedEnd = Angle.degrees(360-viewModel.gapParams.takeoff.angle) - rotationAdjustment
+        let modifiedRadius = rect.width / CGFloat(viewModel.scale) * CGFloat(viewModel.takeoffRadius)
         
         var path = Path()
         
@@ -33,20 +33,20 @@ struct GapShape: Shape {
         path.addLine(to: CGPoint(x: modifiedRadius * CGFloat(cos(modifiedEnd.radians)), y: rect.maxY))
         
         // Gap
-        path.move(to: CGPoint(x:modifiedRadius * CGFloat(cos(modifiedEnd.radians)) + (CGFloat(jump.gap ?? 0) * step) - (CGFloat(jump.table ?? 0) * step), y: rect.maxY))
+        path.move(to: CGPoint(x: modifiedRadius * CGFloat(cos(modifiedEnd.radians)) + viewModel.gap * viewModel.step(rect) - (viewModel.table * viewModel.step(rect)), y: rect.maxY))
         
         // Landing
-        path.addLine(to: CGPoint(x:modifiedRadius * CGFloat(cos(modifiedEnd.radians)) + (CGFloat(jump.gap ?? 0) * step) - (CGFloat(jump.table ?? 0) * step), y: rect.maxY - (CGFloat(jump.landingHeight ?? 0) * step)))
+        path.addLine(to: CGPoint(x: modifiedRadius * CGFloat(cos(modifiedEnd.radians)) + (viewModel.gap * viewModel.step(rect)) - (CGFloat(viewModel.gapParams.landing.table) * viewModel.step(rect)), y: rect.maxY - (CGFloat(viewModel.gapParams.landing.height) * viewModel.step(rect))))
         
         // Table
-        if jump.table != 0 {
-            path.addLine(to: CGPoint(x:modifiedRadius * CGFloat(cos(modifiedEnd.radians)) + (CGFloat(jump.gap ?? 0) * step), y: rect.maxY - (CGFloat(jump.landingHeight ?? 0) * step)))
+        if viewModel.gapParams.landing.table != 0 {
+            path.addLine(to: CGPoint(x: modifiedRadius * CGFloat(cos(modifiedEnd.radians)) + (viewModel.gap * viewModel.step(rect)), y: rect.maxY - (CGFloat(viewModel.gapParams.landing.height ) * viewModel.step(rect))))
         }
         
-        path.addLine(to: CGPoint(x:modifiedRadius * CGFloat(cos(modifiedEnd.radians)) + (CGFloat(jump.gap ?? 0) * step), y:
-            rect.maxY - (CGFloat(jump.landingHeight ?? 0) * step)
+        path.addLine(to: CGPoint(x: modifiedRadius * CGFloat(cos(modifiedEnd.radians)) + (viewModel.gap * viewModel.step(rect)), y:
+            rect.maxY - (CGFloat(viewModel.gapParams.landing.height) * viewModel.step(rect))
         ))
-        path.addLine(to: CGPoint(x: modifiedRadius * CGFloat(cos(modifiedEnd.radians)) + (CGFloat(jump.gap ?? 0) * step) + (CGFloat(jump.landingLength) * step), y: rect.maxY))
+        path.addLine(to: CGPoint(x: modifiedRadius * CGFloat(cos(modifiedEnd.radians)) + (viewModel.gap * viewModel.step(rect)) + (viewModel.landingLength * viewModel.step(rect)), y: rect.maxY))
         
         return path
     }
@@ -55,7 +55,7 @@ struct GapShape: Shape {
 
 struct GapShape_Previews: PreviewProvider {
     static var previews: some View {
-        GapShape(jump: GapCalculator(gap: 2, table: 1, takeoffHeight: 2, takeoffAngle: 60, landingHeight: 2, landingAngle: 30, speed: 19), scale: 10)
+        GapShape(viewModel: GapShapeModel(params: GapParams.defaultParams, scale: 10))
         .stroke(Color.blue, lineWidth: 3)
         .frame(width: 300, height: 300)
     }
