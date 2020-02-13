@@ -26,13 +26,14 @@ struct RampView: View {
                     .frame(width: geometry.size.width, height: geometry.size.height)
             }
         }
+        .onAppear(perform: viewModel.refresh)
     }
 }
 
 
 struct RampView_Previews: PreviewProvider {
     static var previews: some View {
-        RampView(viewModel: RampViewModel(params: GapParams.defaultParams))
+        RampView(viewModel: RampViewModel(gapParams: GapParams.defaultParams))
         .frame(width: 300, height: 150)
             .environment(\.colorScheme, .dark)
     }

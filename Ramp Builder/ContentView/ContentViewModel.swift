@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-final class ContentViewModel {
+final class ContentViewModel: ObservableObject {
 //    @EnvironmentObject var gapState: GapState
     
     var gapParams: GapParams?

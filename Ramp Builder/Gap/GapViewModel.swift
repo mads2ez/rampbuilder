@@ -8,8 +8,8 @@
 
 import SwiftUI
 
-class GapViewModel {
-    var gapParams: GapParams
+class GapViewModel: ObservableObject {
+    @Published var gapParams: GapParams
     let store = GapParamsUserDefaults()
     
     init(params: GapParams) {

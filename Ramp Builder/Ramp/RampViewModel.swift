@@ -9,14 +9,20 @@
 import SwiftUI
 
 final class RampViewModel: ObservableObject {
-    @Published var params: TakeoffParams?
-
-    init(store: GapParamsStore) {
-        self.params = store.get()?.takeoff
-     }
+    @Published var gapParams: GapParams
+    var store: GapParamsStore = GapParamsUserDefaults()
     
-    init(params: GapParams) {
-        self.params = params.takeoff
+    init(gapParams: GapParams) {
+        self.gapParams = gapParams
+    }
+     
+    init(store: GapParamsStore) {
+        self.store = store
+        self.gapParams = store.get() ?? GapParams.defaultParams
+    }
+    
+    func refresh() {
+        self.gapParams = store.get() ?? GapParams.defaultParams
     }
     
     // Helpers
@@ -24,15 +30,15 @@ final class RampViewModel: ObservableObject {
     var startAngle: Angle = .degrees(0)
     
     var rampAngle: Angle {
-        return .degrees(360 - (self.params?.angle ?? 0))
+        return .degrees(360 - (self.gapParams.takeoff.angle ))
     }
     
     var rampRadius: Double {
-        GapCalculator.calcTakeoffRadius(height: self.params?.height ?? 0, angle: params?.angle ?? 0)
+        return GapCalculator.calcTakeoffRadius(height: gapParams.takeoff.height, angle: gapParams.takeoff.angle)
     }
     
     var rampLength: Double {
-        GapCalculator.calcTakeoffLength(height: params?.height ?? 0, angle: params?.angle ?? 0)
+        return GapCalculator.calcLandingLength(height: gapParams.landing.height, angle: gapParams.landing.angle)
     }
     
     func calcScale(width: CGFloat, height: CGFloat) -> (scale: Int, step: CGFloat) {
