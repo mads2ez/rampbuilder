@@ -9,7 +9,7 @@
 import SwiftUI
 
 class GapShapeModel {
-    @Published var gapParams: GapParams
+    var gapParams: GapParams
     var scale: Int
     
     init(params: GapParams, scale: Int) {

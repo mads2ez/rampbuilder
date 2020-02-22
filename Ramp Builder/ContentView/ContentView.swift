@@ -18,9 +18,6 @@ struct ContentView: View {
     var body: some View {
         TabView {
             InputView(viewModel: viewModel.inputViewModel)
-                .onTapGesture {
-                UIApplication.shared.endEditing()
-                }
                 .tabItem {
                     Image(systemName: "1.circle")
                     Text("Set")

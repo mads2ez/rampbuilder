@@ -10,9 +10,8 @@ import SwiftUI
 
 class InputViewModel: ObservableObject {
     
-//    @EnvironmentObject var gapState: GapState
-    
     var params: GapParams
+    let store: GapParamsStore
     
     @Published var takeoffHeight = "" {
        didSet {
@@ -98,18 +97,10 @@ class InputViewModel: ObservableObject {
         return true
     }
     
-//    init(gapState: GapState) {
-//        self.takeoffHeight = gapState.takeoff.height.toString(format: ".1") == "0.0" ? "" : gapState.takeoff.height.toString(format: ".")
-//        self.takeoffAngle = Int(gapState.takeoff.angle)
-//        self.gap = gapState.gap?.toString(format: ".1") == "0.0" ? "" : gapState.gap?.toString(format: ".") ?? ""
-//        self.table = gapState.landing?.table.toString(format: ".1") == "0.0" ? "" : gapState.landing?.table.toString(format: ".") ?? ""
-//        self.landingHeight = gapState.landing?.height.toString(format: ".1") == "0.0" ? "" : gapState.landing?.height.toString(format: ".") ?? ""
-//        self.landingAngle = gapState.landing?.angle.toInt() ?? Int(0)
-//        self.speed = gapState.speed?.toString(format: ".1") == "0.0" ? "" : gapState.speed?.toString(format: ".") ?? ""
-//    }
-    
-    init(params: GapParams) {
-        self.params =  params
+    init(params: GapParams, store: GapParamsStore = GapParamsUserDefaults()) {
+        self.params = params
+        self.store = store
+        
         self.takeoffHeight = params.takeoff.height.toString(format: ".1") == "0.0" ? "" : params.takeoff.height.toString(format: ".")
         self.takeoffAngle = Int(params.takeoff.angle)
         self.gap = params.gap.toString(format: ".1") == "0.0" ? "" : params.gap.toString(format: ".")
@@ -119,8 +110,8 @@ class InputViewModel: ObservableObject {
         self.speed = params.speed.toString(format: ".1") == "0.0" ? "" : params.speed.toString(format: ".")
     }
     
-    convenience init(store: GapParamsStore) {
-        self.init(params: store.get() ?? GapParams.defaultParams)
+    convenience init(store: GapParamsStore = GapParamsUserDefaults()) {
+        self.init(params: store.get() ?? GapParams.defaultParams, store: store)
     }
     
     func saveInput() {
@@ -132,11 +123,9 @@ class InputViewModel: ObservableObject {
         self.params.landing.angle = Double(self.landingAngle)
         self.params.speed = Double(self.speed.replaceComma()) ?? 0
         
-        let store = GapParamsUserDefaults()
-        
         store.set(params: params)
         
-        print("height \(self.params.takeoff.height), angle \(self.params.takeoff.angle), land height \(self.params.landing.height), land angle \(self.params.landing.angle)")
+        print("height \(String(describing: self.params.takeoff.height)), angle \(String(describing: self.params.takeoff.angle)), land height \(String(describing: self.params.landing.height)), land angle \(String(describing: self.params.landing.angle))")
     }
 }
 

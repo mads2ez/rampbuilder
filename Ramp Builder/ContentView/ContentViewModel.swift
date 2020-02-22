@@ -9,36 +9,30 @@
 import SwiftUI
 
 final class ContentViewModel: ObservableObject {
-//    @EnvironmentObject var gapState: GapState
     
     var gapParams: GapParams?
+    let store: GapParamsStore
     
-    let store = GapParamsUserDefaults()
-    var inputViewModel: InputViewModel
-    let rampViewModel: RampViewModel
-    let gapViewModel: GapViewModel
-    
-    init(params: GapParams) {
+    init(params: GapParams, store: GapParamsStore = GapParamsUserDefaults()) {
         self.gapParams = params
-        self.inputViewModel = InputViewModel(store: store)
-        self.rampViewModel = RampViewModel(store: store)
-        self.gapViewModel = GapViewModel(store: store)
-        
+        self.store = store
         print(params)
     }
     
     init(store: GapParamsStore) {
+        self.store = store
         self.gapParams = store.get()
-        self.inputViewModel = InputViewModel(store: store)
-        self.rampViewModel = RampViewModel(store: store)
-        self.gapViewModel = GapViewModel(store: store)
     }
     
-//    func fetchStore() {
-//        if let store = GapParamsUserDefaults().get() {
-//            gapParams = store
-//        } else {
-//            gapParams = GapParams.defaultParams
-//        }
-//    }
+    var inputViewModel: InputViewModel {
+        return InputViewModel(store: store)
+    }
+    
+    var rampViewModel: RampViewModel {
+        return RampViewModel(store: store)
+    }
+    
+    var gapViewModel: GapViewModel {
+         return GapViewModel(store: store)
+    }
 }

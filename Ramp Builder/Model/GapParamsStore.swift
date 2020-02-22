@@ -14,6 +14,14 @@ protocol GapParamsStore {
     func get() -> GapParams?
 }
 
+class GapParamsGetter {
+    let gapParams: GapParams
+    
+    init(store: GapParamsStore = GapParamsUserDefaults()) {
+        self.gapParams = store.get() ?? GapParams.defaultParams
+    }
+}
+
 final class GapParamsUserDefaults: GapParamsStore {
 
     private enum Constants {

@@ -18,7 +18,6 @@ struct InputView: View {
     var body: some View {
         ScrollView() {
             VStack {
-                
                 VStack {
                     RampTextFieldView(title: "Takeoff Height", placeholder: "Meters", value: self.$viewModel.takeoffHeight).padding(.bottom, 10)
                     

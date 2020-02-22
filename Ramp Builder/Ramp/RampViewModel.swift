@@ -10,6 +10,7 @@ import SwiftUI
 
 final class RampViewModel: ObservableObject {
     @Published var gapParams: GapParams
+    
     var store: GapParamsStore = GapParamsUserDefaults()
     
     init(gapParams: GapParams) {

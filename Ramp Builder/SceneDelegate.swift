@@ -25,25 +25,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
 
-        let gapParams: GapParams
-        
-        if let store = GapParamsUserDefaults().get() {
-            gapParams = store
-        } else {
-            gapParams = GapParams.defaultParams
-        }
-        
-        // ??
-        let gapState = GapState(params: gapParams)
-        
+        let gapParams: GapParams = GapParamsGetter().gapParams
+                
         let contentViewModel = ContentViewModel(params: gapParams)
-        
-//        let gapView =  GapView()
-//        let rampView = RampView()
         
         let contentView = ContentView(viewModel: contentViewModel)
             .environment(\.managedObjectContext, context)
-            .environmentObject(gapState)
         
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
