@@ -24,20 +24,20 @@ struct LegendView: View {
                 Text("Takeoff Angle: \(viewModel.gapParams.takeoff.angle.toString(format: "."))°")
             }
             
-            if viewModel.gapParams.gap != nil {
-                VStack(alignment: .leading) {
-                    Text("Landing Height: \(viewModel.gapParams.landing.height.toString(format: ".1")) m")
-                    Text("Landing Length: \(viewModel.landingLength.toString(format: ".1")) m")
-                    Text("Landing Angle: \(viewModel.gapParams.landing.angle.toString(format: ".") )°")
-                    
-                    Text("")
+            
+            VStack(alignment: .leading) {
+                Text("Landing Height: \(viewModel.gapParams.landing.height.toString(format: ".1")) m")
+                Text("Landing Length: \(viewModel.landingLength.toString(format: ".1")) m")
+                Text("Landing Angle: \(viewModel.gapParams.landing.angle.toString(format: ".") )°")
+                
+                Text("")
 
-                    Text("Speed: \(viewModel.gapParams.speed.toString(format: ".") ) m/s")
-                    Text("Gap: \(viewModel.gapParams.gap.toString(format: ".1") ) m")
-                    
-                    Text("Landing stiffness (equal to height if you drop to flat landing): \((viewModel.stiffness.toString(format: ".1"))) m")
-                }
+                Text("Speed: \(viewModel.gapParams.speed.toString(format: ".") ) m/s")
+                Text("Gap: \(viewModel.gapParams.gap.toString(format: ".1") ) m")
+                
+                Text("Landing stiffness (equal to height if you drop to flat landing): \((viewModel.stiffness.toString(format: ".1"))) m")
             }
+        
         }
         .padding()
         .font(.caption)

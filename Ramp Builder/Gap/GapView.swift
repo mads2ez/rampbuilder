@@ -9,8 +9,7 @@
 import SwiftUI
 
 struct GapView: View {
-//    @EnvironmentObject var gapState: GapState
-    
+
     @ObservedObject var viewModel: GapViewModel
     
     init(viewModel: GapViewModel) {

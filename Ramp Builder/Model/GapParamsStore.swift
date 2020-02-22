@@ -9,16 +9,19 @@
 import Foundation
 
 protocol GapParamsStore {
-
     func set(params: GapParams)
     func get() -> GapParams?
 }
 
-class GapParamsGetter {
-    let gapParams: GapParams
-    
+class GapParamsService {
+    private let store: GapParamsStore
+
     init(store: GapParamsStore = GapParamsUserDefaults()) {
-        self.gapParams = store.get() ?? GapParams.defaultParams
+        self.store = store
+    }
+    
+    var gapParamsOrDefault: GapParams {
+        return store.get() ?? GapParams.defaultParams
     }
 }
 

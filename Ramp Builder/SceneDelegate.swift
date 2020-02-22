@@ -24,9 +24,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
+        
+        let store: GapParamsStore = GapParamsUserDefaults()
+        let service: GapParamsService = GapParamsService(store: store)
 
-        let gapParams: GapParams = GapParamsGetter().gapParams
-                
+        let gapParams: GapParams = GapParamsService().gapParamsOrDefault
+        
         let contentViewModel = ContentViewModel(params: gapParams)
         
         let contentView = ContentView(viewModel: contentViewModel)
