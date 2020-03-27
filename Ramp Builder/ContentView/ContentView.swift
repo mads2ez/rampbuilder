@@ -30,14 +30,7 @@ struct ContentView: View {
                     Image(systemName: "2.circle")
                     Text("Gap")
                 }.tag(1)
-            
-            RampView(viewModel: viewModel.rampViewModel)
-                .frame(minWidth: 200, maxWidth: .infinity, minHeight: 100, maxHeight: .infinity)
-                .padding()
-                .tabItem {
-                    Image(systemName: "3.circle")
-                    Text("Ramp")
-                }.tag(2)
+                .onAppear(perform: viewModel.refresh)
         }
     }
 }
@@ -45,7 +38,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewModel: ContentViewModel(params: GapParams.defaultParams))
+        ContentView(viewModel: ContentViewModel(store: GapParamsMock()))
     }
 }
 

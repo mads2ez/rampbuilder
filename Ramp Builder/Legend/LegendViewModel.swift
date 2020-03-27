@@ -10,9 +10,11 @@ import SwiftUI
 
 class LegendViewModel {
     var gapParams: GapParams
+    var backgroundColor: Color
     
-    init(params: GapParams) {
+    init(params: GapParams, color: Color = Color(red: 0, green: 0, blue: 0, opacity: 0.2)) {
         self.gapParams = params
+        self.backgroundColor = color
     }
     
     var takeoffRadius: Double {
@@ -20,7 +22,7 @@ class LegendViewModel {
     }
     
     var takeoffLength: Double {
-        GapCalculator.calcTakeoffLength(height: gapParams.takeoff.height, angle: gapParams.takeoff.angle)
+        return GapCalculator.calcTakeoffLength(height: gapParams.takeoff.height, angle: gapParams.takeoff.angle)
     }
     
     var landingLength: Double {
@@ -30,8 +32,4 @@ class LegendViewModel {
     var stiffness: Double {
         return GapCalculator.calcStiffness(speed: gapParams.speed, gap: gapParams.gap, angleTakeoff: gapParams.takeoff.angle, angleLanding: gapParams.landing.angle, heightLanding: gapParams.landing.height, heightTakeoff: gapParams.takeoff.height)
     }
-    
-    // Helpers
-    
-    var backgroundColor = Color(red: 0, green: 0, blue: 0, opacity: 0.2)
 }

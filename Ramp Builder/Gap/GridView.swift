@@ -92,7 +92,7 @@ struct GridView: View {
 struct YGridView_Previews: PreviewProvider {
     static var previews: some View {
         GridView(step: 100)
-            .frame(width: 300, height: 100)
+            .frame(width: 300, height: 300)
             .offset(x: 0, y: 0)
             .environment(\.colorScheme, .dark)
     }

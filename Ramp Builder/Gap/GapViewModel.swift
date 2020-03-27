@@ -21,22 +21,16 @@ class GapViewModel: ObservableObject {
         self.init(params: store.get() ?? GapParams.defaultParams)
     }
     
+}
+
+extension GapViewModel {
+    
     func refresh() {
         self.gapParams = store.get() ?? GapParams.defaultParams
     }
     
-    // Helpers
-    
-    var ramplength: Double {
-        return GapCalculator.calcTakeoffLength(height: gapParams.takeoff.height, angle: gapParams.takeoff.angle)
-    }
-    
-    var landingLength: Double {
-        return GapCalculator.calcLandingLength(height: gapParams.landing.height, angle: gapParams.landing.angle)
-    }
-    
     func calcScale(width: CGFloat, height: CGFloat) -> (scale: Int, step: CGFloat) {
-        let scale = Int(1 + ramplength + self.gapParams.gap + landingLength)
+        let scale = Int(1 + self.gapParams.takeoffLength + self.gapParams.gap + self.gapParams.landingLength)
         let step = width / CGFloat(scale)
                 
         return (scale: scale, step: step)

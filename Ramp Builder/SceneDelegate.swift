@@ -26,12 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
         
         let store: GapParamsStore = GapParamsUserDefaults()
-        let service: GapParamsService = GapParamsService(store: store)
-
-        let gapParams: GapParams = GapParamsService().gapParamsOrDefault
-        
-        let contentViewModel = ContentViewModel(params: gapParams)
-        
+        let contentViewModel = ContentViewModel(store: store)
         let contentView = ContentView(viewModel: contentViewModel)
             .environment(\.managedObjectContext, context)
         

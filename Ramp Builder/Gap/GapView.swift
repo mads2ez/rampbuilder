@@ -18,16 +18,23 @@ struct GapView: View {
         
     var body: some View {
         GeometryReader { geometry in
-            GridView(step: self.viewModel.step(geometry.size), color: Color.gray)
-            
-            GapShape(viewModel: GapShapeModel(params: self.viewModel.gapParams, scale: self.viewModel.scale(geometry.size)))
-                .stroke(Color.blue, lineWidth: 2)
-                .frame(width: geometry.size.width, height: geometry.size.height)
-            
-            Trajectory(viewModel: TrajectoryViewModel(params: self.viewModel.gapParams, step: self.viewModel.step(geometry.size)))
-                .stroke(Color.green, lineWidth: 2)
-            
-            LegendView(viewModel: LegendViewModel(params: self.viewModel.gapParams))
+            VStack {
+                ZStack {
+                    GridView(step: self.viewModel.step(geometry.size), color: Color.gray)
+                    
+                    GapShape(gapParams: self.viewModel.gapParams)
+                        .stroke(Color.blue, lineWidth: 2)
+                    
+                    Trajectory(gapParams:  self.viewModel.gapParams)
+                        .stroke(Color.green, lineWidth: 2)
+                }
+                .frame(width: geometry.size.width, height: geometry.size.width/2)
+                    .padding()
+                
+                LegendView(viewModel: LegendViewModel(params: self.viewModel.gapParams, color: Color.white))
+                .frame(width: geometry.size.width, height: geometry.size.width/2)
+
+            }
         }
         .onAppear(perform: viewModel.refresh)
     }
@@ -36,6 +43,5 @@ struct GapView: View {
 struct GapView_Previews: PreviewProvider {
     static var previews: some View {
         GapView(viewModel: GapViewModel(params: GapParams.defaultParams))
-            .frame(width: 300, height: 150)
     }
 }

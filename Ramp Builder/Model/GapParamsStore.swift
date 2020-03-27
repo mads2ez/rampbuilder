@@ -13,18 +13,6 @@ protocol GapParamsStore {
     func get() -> GapParams?
 }
 
-class GapParamsService {
-    private let store: GapParamsStore
-
-    init(store: GapParamsStore = GapParamsUserDefaults()) {
-        self.store = store
-    }
-    
-    var gapParamsOrDefault: GapParams {
-        return store.get() ?? GapParams.defaultParams
-    }
-}
-
 final class GapParamsUserDefaults: GapParamsStore {
 
     private enum Constants {
@@ -60,5 +48,23 @@ final class GapParamsUserDefaults: GapParamsStore {
             return nil
         }
         return result
+    }
+}
+
+
+final class GapParamsMock: GapParamsStore {
+    
+    var gapParams: GapParams
+    
+    init() {
+        self.gapParams = GapParams.defaultParams
+    }
+    
+    func set(params: GapParams) {
+        self.gapParams = params
+    }
+
+    func get() -> GapParams? {
+        return GapParams.defaultParams
     }
 }

@@ -50,3 +50,22 @@ extension TakeoffParams {
         return params
     }()
 }
+
+
+extension GapParams {
+    var takeoffRadius: Double {
+        return GapCalculator.calcTakeoffRadius(height: takeoff.height, angle: takeoff.angle)
+    }
+    
+    var takeoffLength: Double {
+        return GapCalculator.calcTakeoffLength(height: takeoff.height, angle: takeoff.angle)
+    }
+    
+    var landingLength: Double {
+        return GapCalculator.calcLandingLength(height: takeoff.height, angle: takeoff.angle)
+    }
+    
+    var landingStiffness: Double {
+        return GapCalculator.calcStiffness(speed: speed, gap: gap, angleTakeoff: takeoff.angle, angleLanding: landing.angle, heightLanding: landing.height, heightTakeoff: takeoff.height)
+    }
+}

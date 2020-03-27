@@ -28,8 +28,8 @@ enum GapCalculator {
          let v0 = speed * 1000 / 3600
          let v0x = v0 * cos(angleTakeoff.toRadians())
          let v0y = v0 * sin(angleTakeoff.toRadians())
-         let L = pow(v0,2) * sin(angleTakeoff.toRadians() * 2) / 9.8
-         let H = pow(v0,2) * pow(sin(angleTakeoff.toRadians()), 2) / (2 * 9.8)
+//         let L = pow(v0,2) * sin(angleTakeoff.toRadians() * 2) / 9.8
+//         let H = pow(v0,2) * pow(sin(angleTakeoff.toRadians()), 2) / (2 * 9.8)
          
          
          let dp = abs(heightLanding / tan(angleLanding.toRadians()))
@@ -43,7 +43,7 @@ enum GapCalculator {
          
          let diskr = b * b - 4 * a * c
          
-         print("v0 = \(v0), v0x = \(v0x), L = \(L), H = \(H), a = \(a), b = \(b), c = \(c), diskr = \(diskr)")
+//         print("v0 = \(v0), v0x = \(v0x), L = \(L), H = \(H), a = \(a), b = \(b), c = \(c), diskr = \(diskr)")
          
          if (diskr<0) {
              print("Нет пересечения траектории с приземлением! \(diskr)")
@@ -55,7 +55,7 @@ enum GapCalculator {
              let vk = sqrt(v0x*v0x + pow((v0y - 9.8 * xroot / v0x),2))
              let fi = atan((v0y - 9.8 * xroot / v0x) / v0x)
              
-             print("xroot \(xroot), vk = \(vk), fi = \(fi)")
+//             print("xroot \(xroot), vk = \(vk), fi = \(fi)")
              
              // landing stiffness
              let stiffness = pow(vk * sin(abs(abs(fi) - angleLanding.toRadians())), 2) / (2 * 9.8)
