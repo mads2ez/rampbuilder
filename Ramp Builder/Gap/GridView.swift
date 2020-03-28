@@ -70,8 +70,8 @@ struct GridView: View {
         let stepsY = Array(0..<Int(geometry.size.height / step))
         
         return ZStack(alignment: .bottomLeading) {
-//            Rectangle()
-//                .stroke(color, lineWidth: 0.5)
+            Rectangle()
+                .stroke(color, lineWidth: 0.5)
             
             VStack(spacing: 0) {
                 ForEach(stepsY.reversed(), id: \.self) { mark in

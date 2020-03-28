@@ -62,7 +62,7 @@ extension GapParams {
     }
     
     var landingLength: Double {
-        return GapCalculator.calcLandingLength(height: takeoff.height, angle: takeoff.angle)
+        return GapCalculator.calcLandingLength(height: landing.height, angle: landing.angle)
     }
     
     var landingStiffness: Double {

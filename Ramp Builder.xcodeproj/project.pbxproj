@@ -12,7 +12,6 @@
 		A784889523DDB09B00CD8291 /* GapParamsStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A784889423DDB09B00CD8291 /* GapParamsStoreTests.swift */; };
 		D60FA1E123F32D4C002E8E0B /* GapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60FA1E023F32D4C002E8E0B /* GapViewModel.swift */; };
 		D616C31B23E0B80600FE0A52 /* GapParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616C31A23E0B80600FE0A52 /* GapParams.swift */; };
-		D6398B8023F34DDD0051552C /* LegendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6398B7F23F34DDD0051552C /* LegendViewModel.swift */; };
 		D697C5E023DA30A500F8FE4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D697C5DF23DA30A500F8FE4A /* AppDelegate.swift */; };
 		D697C5E223DA30A500F8FE4A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D697C5E123DA30A500F8FE4A /* SceneDelegate.swift */; };
 		D697C5E523DA30A500F8FE4A /* Ramp_Builder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D697C5E323DA30A500F8FE4A /* Ramp_Builder.xcdatamodeld */; };
@@ -57,7 +56,6 @@
 		CDDB9E9649E3C7251DA98C82 /* libPods-Ramp Builder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Ramp Builder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D60FA1E023F32D4C002E8E0B /* GapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GapViewModel.swift; sourceTree = "<group>"; };
 		D616C31A23E0B80600FE0A52 /* GapParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GapParams.swift; sourceTree = "<group>"; };
-		D6398B7F23F34DDD0051552C /* LegendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendViewModel.swift; sourceTree = "<group>"; };
 		D697C5DC23DA30A500F8FE4A /* Ramp Builder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ramp Builder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D697C5DF23DA30A500F8FE4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D697C5E123DA30A500F8FE4A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,15 +127,6 @@
 			path = RampBuilderTests;
 			sourceTree = "<group>";
 		};
-		D65ECB192418233D00E10682 /* Legend */ = {
-			isa = PBXGroup;
-			children = (
-				D6398B7F23F34DDD0051552C /* LegendViewModel.swift */,
-				D6C3938323DA3D310029F81F /* LegendView.swift */,
-			);
-			path = Legend;
-			sourceTree = "<group>";
-		};
 		D67543B323F0A5180089C764 /* ContentView */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,7 +163,6 @@
 				D67543B323F0A5180089C764 /* ContentView */,
 				D6C3936123DA37EC0029F81F /* Input */,
 				D6C3936223DA37FE0029F81F /* Gap */,
-				D65ECB192418233D00E10682 /* Legend */,
 				D6C3936923DA39000029F81F /* Helpers */,
 				D697C5DF23DA30A500F8FE4A /* AppDelegate.swift */,
 				D697C5E123DA30A500F8FE4A /* SceneDelegate.swift */,
@@ -215,6 +203,7 @@
 				D6C3937C23DA3C230029F81F /* GapShape.swift */,
 				D6B85D04242EB55000872565 /* Trajectory.swift */,
 				D6C3938423DA3D310029F81F /* GridView.swift */,
+				D6C3938323DA3D310029F81F /* LegendView.swift */,
 			);
 			path = Gap;
 			sourceTree = "<group>";
@@ -389,7 +378,6 @@
 				D6B85D05242EB55000872565 /* Trajectory.swift in Sources */,
 				D6C3937523DA3B960029F81F /* Modal.swift in Sources */,
 				D697C5E223DA30A500F8FE4A /* SceneDelegate.swift in Sources */,
-				D6398B8023F34DDD0051552C /* LegendViewModel.swift in Sources */,
 				D697C5E723DA30A500F8FE4A /* ContentView.swift in Sources */,
 				D6C3936623DA388B0029F81F /* Calculator.swift in Sources */,
 				D6C3937B23DA3C150029F81F /* GapView.swift in Sources */,

@@ -28,11 +28,11 @@ struct GapView: View {
                     Trajectory(gapParams:  self.viewModel.gapParams)
                         .stroke(Color.green, lineWidth: 2)
                 }
-                .frame(width: geometry.size.width, height: geometry.size.width/2)
+                    .frame(width: geometry.size.width, height: geometry.size.width)
                     .padding()
                 
-                LegendView(viewModel: LegendViewModel(params: self.viewModel.gapParams, color: Color.white))
-                .frame(width: geometry.size.width, height: geometry.size.width/2)
+                LegendView(gapParams: self.viewModel.gapParams, backgroundColor: Color.white)
+                    .frame(width: geometry.size.width, height: geometry.size.width)
 
             }
         }

@@ -20,7 +20,6 @@ class GapViewModel: ObservableObject {
     convenience init(store: GapParamsStore) {
         self.init(params: store.get() ?? GapParams.defaultParams)
     }
-    
 }
 
 extension GapViewModel {
