@@ -20,6 +20,7 @@ struct LegendView: View {
                 Text("Takeoff Length: \(gapParams.takeoffLength.toString(format: ".1")) m")
                 Text("Takeoff Radius: \(gapParams.takeoffRadius.toString(format: ".1")) m")
                 Text("Takeoff Angle: \(gapParams.takeoff.angle.toString(format: "."))°")
+                
             }
             
             
@@ -34,6 +35,7 @@ struct LegendView: View {
                 Text("Gap: \(gapParams.gap.toString(format: ".1") ) m")
                 
                 Text("Landing stiffness (equal to height if you drop to flat landing): \((gapParams.landingStiffness.toString(format: ".1"))) m")
+                Text("Max Height: \((gapParams.maxHeight.toString(format: ".1"))) m")
             }
         
         }

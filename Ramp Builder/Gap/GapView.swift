@@ -27,15 +27,23 @@ struct GapView: View {
                     
                     Trajectory(gapParams:  self.viewModel.gapParams)
                         .stroke(Color.green, lineWidth: 2)
+                    
+                    TrajectoryShape(startPoint: self.viewModel.startPoint(CGSize(width: geometry.size.width, height: geometry.size.height/3)), data: self.viewModel.trajectoryPoints(CGSize(width: geometry.size.width, height: geometry.size.height/3)))
+                        .stroke(Color.yellow, lineWidth: 2)
+
                 }
-                    .frame(width: geometry.size.width, height: geometry.size.width)
+                    .background(Color.white)
                     .padding()
+                    .frame(width: geometry.size.width, height: geometry.size.height/3)
                 
                 LegendView(gapParams: self.viewModel.gapParams, backgroundColor: Color.white)
-                    .frame(width: geometry.size.width, height: geometry.size.width)
-
+                    .frame(width: geometry.size.width, height: geometry.size.height/2)
+                
+                Spacer()
             }
+        
         }
+        .background(Color(UIColor.secondarySystemBackground))
         .onAppear(perform: viewModel.refresh)
     }
 }
@@ -43,5 +51,6 @@ struct GapView: View {
 struct GapView_Previews: PreviewProvider {
     static var previews: some View {
         GapView(viewModel: GapViewModel(params: GapParams.defaultParams))
+        .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
     }
 }

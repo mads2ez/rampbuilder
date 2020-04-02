@@ -25,7 +25,6 @@ struct ContentView: View {
             
             GapView(viewModel: viewModel.gapViewModel)
                 .frame(minWidth: 200, maxWidth: .infinity, minHeight: 100, maxHeight: .infinity)
-                .padding()
                 .tabItem {
                     Image(systemName: "2.circle")
                     Text("Gap")

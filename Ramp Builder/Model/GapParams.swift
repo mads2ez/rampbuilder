@@ -68,4 +68,8 @@ extension GapParams {
     var landingStiffness: Double {
         return GapCalculator.calcStiffness(speed: speed, gap: gap, angleTakeoff: takeoff.angle, angleLanding: landing.angle, heightLanding: landing.height, heightTakeoff: takeoff.height)
     }
+    
+    var maxHeight: Double {
+        return GapCalculator.calcMaxHeight(speed: speed, takeoffAngle: takeoff.angle, takeoffHeight: takeoff.height)
+    }
 }

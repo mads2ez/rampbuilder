@@ -63,6 +63,10 @@ enum GapCalculator {
              return stiffness
          }
      }
+    
+    static func calcMaxHeight(speed: Double, takeoffAngle: Double, takeoffHeight: Double) -> Double {
+        return pow(speed * 0.28, 2) * pow(sin(takeoffAngle.toRadians()), 2) / (2 * 9.82) + takeoffHeight
+    }
 
 /*
     Private Sub CommandButton1_Click()
