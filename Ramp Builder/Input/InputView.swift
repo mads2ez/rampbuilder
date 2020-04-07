@@ -13,54 +13,64 @@ struct InputView: View {
     
     init(viewModel: InputViewModel) {
         self.viewModel = viewModel
+        UITableView.appearance().backgroundColor = .clear
     }
-    
+        
     var body: some View {
-        ScrollView() {
+        ScrollView {
             VStack {
                 VStack {
-                    RampTextFieldView(title: "Takeoff Height", placeholder: "Meters", value: self.$viewModel.takeoffHeight).padding(.bottom, 10)
+                    RampTextFieldView(title: "Takeoff Height", placeholder: "Meters", value: self.$viewModel.takeoffHeight)
                     
-                    RampPickerView(title: "Takeoff Angle", value: self.$viewModel.takeoffAngle).padding(.bottom, 10)
+                    RampPickerRow(title: "Takeoff Angle", value: $viewModel.takeoffAngle)
+                        .onTapGesture {
+                            withAnimation {
+                                self.viewModel.takeoffPickerIsShown.toggle()
+                            }
+                        }
                     
-                    RampTextFieldView(title: "Gap distance", placeholder: "Meters", value: self.$viewModel.gap).padding(.bottom, 10)
+                    if viewModel.takeoffPickerIsShown {
+                        RampPickerView(index: self.$viewModel.takeoffAngle, values: viewModel.possibleAngleRange)
+                    }
                     
-                    RampTextFieldView(title: "Table", placeholder: "Meters", value: self.$viewModel.table).padding(.bottom, 10)
+                    RampTextFieldView(title: "Gap distance", placeholder: "Meters", value: self.$viewModel.gap)
                     
-                    RampTextFieldView(title: "Landing Height", placeholder: "Meters", value: self.$viewModel.landingHeight).padding(.bottom, 10)
+                    RampTextFieldView(title: "Table", placeholder: "Meters", value: self.$viewModel.table)
                     
-                    RampPickerView(title: "Landing Angle", value: self.$viewModel.landingAngle).padding(.bottom, 10)
+                    RampTextFieldView(title: "Landing Height", placeholder: "Meters", value: self.$viewModel.landingHeight)
                     
-                    RampTextFieldView(title: "Speed", placeholder: "m/s", value: self.$viewModel.speed).padding(.bottom, 10)
+                    RampPickerRow(title: "Landing Angle", value: $viewModel.landingAngle)
+                        .onTapGesture {
+                            withAnimation {
+                                self.viewModel.landingPickerIsShown.toggle()
+                            }
+                        }
+                    
+                    if viewModel.landingPickerIsShown {
+                        RampPickerView(index: self.$viewModel.landingAngle, values: viewModel.possibleAngleRange)
+                    }
+                    
+                    RampTextFieldView(title: "Speed", placeholder: "m/s", value: self.$viewModel.speed)
                 }
-                .padding()
+                .padding(.bottom, 50)
+            
+                Button(action: {
+                    self.viewModel.saveInput()
+                }, label: {
+                    Text("Calculate Jump")
+                }).disabled(self.viewModel.isValid == false)
+                    .buttonStyle(RampButtonStyle())
                 
-                HStack {
-                    Spacer()
-
-                    Button(action: {
-                        self.viewModel.saveInput()
-                        UIApplication.shared.endEditing()
-                    }, label: {
-                        Text("Calculate Jump")
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .padding()
-                            .accentColor(Color.white)
-                            .background(self.viewModel.isValid ? Color.blue : Color.gray)
-                            .cornerRadius(15)
-                            .padding(.horizontal, 20)
-                    }).disabled(self.viewModel.isValid == false)
-
-                    Spacer()
-                }
-                
-            }
-        }
+                Spacer()
+            } //vstack
+                .padding(.vertical)
+        } //scrollview
             .onTapGesture {
-                UIApplication.shared.endEditing()
-            }
+                 UIApplication.shared.endEditing()
+             }
     }
 }
+
 
 struct InputView_Previews: PreviewProvider {
     static var previews: some View {

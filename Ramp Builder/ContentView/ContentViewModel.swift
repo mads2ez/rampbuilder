@@ -25,8 +25,4 @@ final class ContentViewModel: ObservableObject {
     var gapViewModel: GapViewModel {
          return GapViewModel(store: store)
     }
-    
-//    func refresh() {
-//        self.gapParams = store.get() ?? GapParams.defaultParams
-//    }
 }

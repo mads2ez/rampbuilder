@@ -41,16 +41,7 @@ class InputViewModel: ObservableObject {
        }
     }
     
-    @Published var takeoffAngle = 60 {
-        didSet {
-            if self.takeoffAngle > 90 {
-                self.takeoffAngle = 90
-            }
-            else if self.takeoffAngle < 0 {
-                self.takeoffAngle = 0
-            }
-        }
-    }
+    @Published var takeoffAngle: Int = 60
     
     @Published var gap: String = "" {
         didSet {
@@ -127,5 +118,10 @@ class InputViewModel: ObservableObject {
         
         print("height \(String(describing: self.params.takeoff.height)), angle \(String(describing: self.params.takeoff.angle)), land height \(String(describing: self.params.landing.height)), land angle \(String(describing: self.params.landing.angle))")
     }
+    
+    var possibleAngleRange: [String] = Array(0...90).compactMap({String($0) + "°"})
+    
+    @Published var takeoffPickerIsShown = false
+    @Published var landingPickerIsShown = false
 }
 

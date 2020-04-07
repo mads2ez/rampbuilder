@@ -17,7 +17,6 @@ struct RampTextFieldView: View {
         VStack() {
             HStack {
                 Text(self.title)
-                    .font(.headline)
                 
                 Spacer()
                                 
@@ -28,7 +27,9 @@ struct RampTextFieldView: View {
             }
             
             Divider()
+            
         }
+            .padding(.horizontal)
             .frame(height: 35)
     }
 }

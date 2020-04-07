@@ -2,49 +2,23 @@
 //  RampPickerView.swift
 //  Ramp Builder
 //
-//  Created by Madsbook on 23.01.2020.
+//  Created by Madsbook on 07.04.2020.
 //  Copyright © 2020 Maxim Sivtcev. All rights reserved.
 //
 
 import SwiftUI
 
 struct RampPickerView: View {
-    @Environment(\.viewController) private var viewControllerHolder: ViewControllerHolder
-    private var viewController: UIViewController? {
-        self.viewControllerHolder.value
-    }
-    
-    var title: String
-    @Binding var value: Int
+    @Binding var index: Int
+    var values: [String]
     
     var body: some View {
-        VStack() {
-            HStack {
-                Text(self.title)
-                    .font(.headline)
-                
-                Spacer()
-                
-                Text("\(self.value)°")
-
+        Picker(selection: $index, label: Text(""), content: {
+           ForEach(0..<values.count, id: \.self) {
+            Text("\(self.values[$0])")
             }
-            
-            Divider()
-        }
-            .contentShape(Rectangle())
-            .frame(height: 35)
-            .onTapGesture {
-                self.viewController?.present(presentationStyle: .overCurrentContext, animated: true) {
-                PickerView(param: self.$value)
-                }
-            }
-    }
-     
-}
-
-struct RampPickerCellView_Previews: PreviewProvider {
-    @State static var val = 2
-    static var previews: some View {
-        RampPickerView(title: "Angle", value: $val)
+        })
+            .labelsHidden()
+            .pickerStyle(WheelPickerStyle())
     }
 }

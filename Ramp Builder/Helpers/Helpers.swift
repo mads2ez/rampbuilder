@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 extension UIApplication {
     func endEditing() {

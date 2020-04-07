@@ -43,7 +43,6 @@ struct GapView: View {
             }
         
         }
-        .background(Color(UIColor.secondarySystemBackground))
         .onAppear(perform: viewModel.refresh)
     }
 }

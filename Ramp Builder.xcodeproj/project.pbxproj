@@ -12,6 +12,8 @@
 		A784889523DDB09B00CD8291 /* GapParamsStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A784889423DDB09B00CD8291 /* GapParamsStoreTests.swift */; };
 		D60FA1E123F32D4C002E8E0B /* GapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60FA1E023F32D4C002E8E0B /* GapViewModel.swift */; };
 		D616C31B23E0B80600FE0A52 /* GapParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616C31A23E0B80600FE0A52 /* GapParams.swift */; };
+		D6691F97243D16FC00D71EA0 /* RampButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6691F96243D16FC00D71EA0 /* RampButtonStyle.swift */; };
+		D6691F99243D176300D71EA0 /* RampPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6691F98243D176300D71EA0 /* RampPickerView.swift */; };
 		D697C5E023DA30A500F8FE4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D697C5DF23DA30A500F8FE4A /* AppDelegate.swift */; };
 		D697C5E223DA30A500F8FE4A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D697C5E123DA30A500F8FE4A /* SceneDelegate.swift */; };
 		D697C5E523DA30A500F8FE4A /* Ramp_Builder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D697C5E323DA30A500F8FE4A /* Ramp_Builder.xcdatamodeld */; };
@@ -26,7 +28,7 @@
 		D6C3936B23DA39110029F81F /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C3936A23DA39110029F81F /* Helpers.swift */; };
 		D6C3936D23DA3A6E0029F81F /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C3936C23DA3A6E0029F81F /* InputView.swift */; };
 		D6C3936F23DA3B4A0029F81F /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C3936E23DA3B4A0029F81F /* PickerView.swift */; };
-		D6C3937223DA3B570029F81F /* RampPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C3937023DA3B570029F81F /* RampPickerView.swift */; };
+		D6C3937223DA3B570029F81F /* RampPickerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C3937023DA3B570029F81F /* RampPickerRow.swift */; };
 		D6C3937323DA3B570029F81F /* RampTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C3937123DA3B570029F81F /* RampTextFieldView.swift */; };
 		D6C3937523DA3B960029F81F /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C3937423DA3B960029F81F /* Modal.swift */; };
 		D6C3937B23DA3C150029F81F /* GapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C3937A23DA3C150029F81F /* GapView.swift */; };
@@ -56,6 +58,8 @@
 		CDDB9E9649E3C7251DA98C82 /* libPods-Ramp Builder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Ramp Builder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D60FA1E023F32D4C002E8E0B /* GapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GapViewModel.swift; sourceTree = "<group>"; };
 		D616C31A23E0B80600FE0A52 /* GapParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GapParams.swift; sourceTree = "<group>"; };
+		D6691F96243D16FC00D71EA0 /* RampButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RampButtonStyle.swift; sourceTree = "<group>"; };
+		D6691F98243D176300D71EA0 /* RampPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RampPickerView.swift; sourceTree = "<group>"; };
 		D697C5DC23DA30A500F8FE4A /* Ramp Builder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ramp Builder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D697C5DF23DA30A500F8FE4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D697C5E123DA30A500F8FE4A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,7 +76,7 @@
 		D6C3936A23DA39110029F81F /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		D6C3936C23DA3A6E0029F81F /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		D6C3936E23DA3B4A0029F81F /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
-		D6C3937023DA3B570029F81F /* RampPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RampPickerView.swift; sourceTree = "<group>"; };
+		D6C3937023DA3B570029F81F /* RampPickerRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RampPickerRow.swift; sourceTree = "<group>"; };
 		D6C3937123DA3B570029F81F /* RampTextFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RampTextFieldView.swift; sourceTree = "<group>"; };
 		D6C3937423DA3B960029F81F /* Modal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
 		D6C3937A23DA3C150029F81F /* GapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GapView.swift; sourceTree = "<group>"; };
@@ -188,9 +192,11 @@
 			children = (
 				D6C3936723DA38CB0029F81F /* InputViewModel.swift */,
 				D6C3936C23DA3A6E0029F81F /* InputView.swift */,
-				D6C3937023DA3B570029F81F /* RampPickerView.swift */,
-				D6C3936E23DA3B4A0029F81F /* PickerView.swift */,
+				D6691F96243D16FC00D71EA0 /* RampButtonStyle.swift */,
 				D6C3937123DA3B570029F81F /* RampTextFieldView.swift */,
+				D6C3937023DA3B570029F81F /* RampPickerRow.swift */,
+				D6691F98243D176300D71EA0 /* RampPickerView.swift */,
+				D6C3936E23DA3B4A0029F81F /* PickerView.swift */,
 			);
 			path = Input;
 			sourceTree = "<group>";
@@ -367,10 +373,12 @@
 				D6C3937D23DA3C230029F81F /* GapShape.swift in Sources */,
 				D6C3936823DA38CB0029F81F /* InputViewModel.swift in Sources */,
 				D6C3938123DA3CB90029F81F /* BlurView.swift in Sources */,
-				D6C3937223DA3B570029F81F /* RampPickerView.swift in Sources */,
+				D6C3937223DA3B570029F81F /* RampPickerRow.swift in Sources */,
 				D60FA1E123F32D4C002E8E0B /* GapViewModel.swift in Sources */,
 				D6C3936F23DA3B4A0029F81F /* PickerView.swift in Sources */,
 				D6C3936B23DA39110029F81F /* Helpers.swift in Sources */,
+				D6691F99243D176300D71EA0 /* RampPickerView.swift in Sources */,
+				D6691F97243D16FC00D71EA0 /* RampButtonStyle.swift in Sources */,
 				D69DC8D223F1D21D0050437C /* ContentViewModel.swift in Sources */,
 				D697C5E023DA30A500F8FE4A /* AppDelegate.swift in Sources */,
 				A784888D23DDAEB500CD8291 /* GapParamsStore.swift in Sources */,

@@ -16,20 +16,23 @@ struct ContentView: View {
     }
     
     var body: some View {
-        TabView {
-            InputView(viewModel: viewModel.inputViewModel)
-                .tabItem {
-                    Image(systemName: "1.circle")
-                    Text("Set")
-                }.tag(0)
-            
-            GapView(viewModel: viewModel.gapViewModel)
-                .frame(minWidth: 200, maxWidth: .infinity, minHeight: 100, maxHeight: .infinity)
-                .tabItem {
-                    Image(systemName: "2.circle")
-                    Text("Gap")
-                }.tag(1)
-        }
+//        NavigationView {
+            TabView {
+                InputView(viewModel: viewModel.inputViewModel)
+                    .tabItem {
+                        Image(systemName: "1.circle")
+                        Text("Set")
+                    }.tag(0)
+                
+                GapView(viewModel: viewModel.gapViewModel)
+                    .tabItem {
+                        Image(systemName: "2.circle")
+                        Text("Gap")
+                    }.tag(1)
+                
+            }
+//            .navigationBarTitle("Ramp Builder", displayMode: .automatic)
+//        }
     }
 }
 
