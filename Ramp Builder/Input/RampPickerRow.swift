@@ -9,10 +9,10 @@
 import SwiftUI
 
 struct RampPickerRow: View {
-    @Environment(\.viewController) private var viewControllerHolder: ViewControllerHolder
-    private var viewController: UIViewController? {
-        self.viewControllerHolder.value
-    }
+//    @Environment(\.viewController) private var viewControllerHolder: ViewControllerHolder
+//    private var viewController: UIViewController? {
+//        self.viewControllerHolder.value
+//    }
     
     var title: String
     @Binding var value: Int

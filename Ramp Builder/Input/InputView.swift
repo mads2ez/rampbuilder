@@ -74,7 +74,10 @@ struct InputView: View {
 
 struct InputView_Previews: PreviewProvider {
     static var previews: some View {
-        InputView(viewModel: InputViewModel(params: GapParams.defaultParams))
+        VStack {
+//            GapView(viewModel: GapViewModel(params: GapParams.defaultParams))
+            InputView(viewModel: InputViewModel(params: GapParams.defaultParams))
+        }
     }
 }
 
