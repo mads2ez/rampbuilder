@@ -13,9 +13,9 @@ class InputViewModel: ObservableObject {
     let store: GapParamsStore
     var params: GapParams
     
-    init(params: GapParams, store: GapParamsStore = GapParamsUserDefaults()) {
-        self.params = params
+    init(store: GapParamsStore) {
         self.store = store
+        self.params = store.get() ?? GapParams.defaultParams
         
         self.takeoffHeight = params.takeoff.height.toString(format: ".1") == "0.0" ? "" : params.takeoff.height.toString(format: ".")
         self.takeoffAngle = Int(params.takeoff.angle)
@@ -26,8 +26,9 @@ class InputViewModel: ObservableObject {
         self.speed = params.speed.toString(format: ".1") == "0.0" ? "" : params.speed.toString(format: ".")
     }
     
-    convenience init(store: GapParamsStore) {
-        self.init(params: store.get() ?? GapParams.defaultParams, store: store)
+    convenience init(params: GapParams) {
+        self.init(store: GapParamsUserDefaults())
+        self.params = params
     }
     
     @Published var takeoffHeight = "" {
@@ -98,6 +99,11 @@ class InputViewModel: ObservableObject {
        }
     }
     
+    @Published var takeoffPickerIsShown = false
+    @Published var landingPickerIsShown = false
+    
+    var possibleAngleRange: [String] = Array(0...90).compactMap({String($0) + "°"})
+    
     var isValid: Bool {
         if (self.gap.isEmpty || self.table.isEmpty || self.takeoffHeight.isEmpty || self.landingHeight.isEmpty || self.speed.isEmpty) {
             return false
@@ -118,10 +124,5 @@ class InputViewModel: ObservableObject {
         
         print("height \(String(describing: self.params.takeoff.height)), angle \(String(describing: self.params.takeoff.angle)), land height \(String(describing: self.params.landing.height)), land angle \(String(describing: self.params.landing.angle))")
     }
-    
-    var possibleAngleRange: [String] = Array(0...90).compactMap({String($0) + "°"})
-    
-    @Published var takeoffPickerIsShown = false
-    @Published var landingPickerIsShown = false
 }
 

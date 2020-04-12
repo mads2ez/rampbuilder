@@ -10,14 +10,15 @@ import SwiftUI
 
 struct InputView: View {
     @ObservedObject var viewModel: InputViewModel
+    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
+
     
     init(viewModel: InputViewModel) {
         self.viewModel = viewModel
-        UITableView.appearance().backgroundColor = .clear
     }
         
-    var body: some View {
-        ScrollView {
+    fileprivate func inputView() -> some View {
+        return ScrollView {
             VStack {
                 VStack {
                     RampTextFieldView(title: "Takeoff Height", placeholder: "Meters", value: self.$viewModel.takeoffHeight)
@@ -27,7 +28,7 @@ struct InputView: View {
                             withAnimation {
                                 self.viewModel.takeoffPickerIsShown.toggle()
                             }
-                        }
+                    }
                     
                     if viewModel.takeoffPickerIsShown {
                         RampPickerView(index: self.$viewModel.takeoffAngle, values: viewModel.possibleAngleRange)
@@ -44,7 +45,7 @@ struct InputView: View {
                             withAnimation {
                                 self.viewModel.landingPickerIsShown.toggle()
                             }
-                        }
+                    }
                     
                     if viewModel.landingPickerIsShown {
                         RampPickerView(index: self.$viewModel.landingAngle, values: viewModel.possibleAngleRange)
@@ -53,7 +54,7 @@ struct InputView: View {
                     RampTextFieldView(title: "Speed", placeholder: "m/s", value: self.$viewModel.speed)
                 }
                 .padding(.bottom, 50)
-            
+                
                 Button(action: {
                     self.viewModel.saveInput()
                 }, label: {
@@ -66,8 +67,108 @@ struct InputView: View {
                 .padding(.vertical)
         } //scrollview
             .onTapGesture {
-                 UIApplication.shared.endEditing()
-             }
+                UIApplication.shared.endEditing()
+            }
+    }
+    
+    
+    
+    var body: some View {
+        NavigationView {
+            Form {
+                HStack {
+                    Text("Takeoff Height")
+                    TextField("Meters", text: self.$viewModel.takeoffHeight)
+                        .multilineTextAlignment(.trailing)
+                        .keyboardType(.decimalPad)
+                }
+
+                HStack {
+                    Text("Takeoff Angle")
+                    
+                    Spacer()
+                    
+                    Text("\(self.viewModel.takeoffAngle)°")
+
+                }
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        self.viewModel.takeoffPickerIsShown.toggle()
+                    }
+
+                if viewModel.takeoffPickerIsShown {
+                   RampPickerView(index: self.$viewModel.takeoffAngle, values: viewModel.possibleAngleRange)
+                }
+
+                HStack {
+                    Text("Gap distance")
+                    TextField("Meters", text: self.$viewModel.gap)
+                        .multilineTextAlignment(.trailing)
+                        .keyboardType(.decimalPad)
+                }
+
+                HStack {
+                    Text("Table")
+                    TextField("Meters", text: self.$viewModel.table)
+                        .multilineTextAlignment(.trailing)
+                        .keyboardType(.decimalPad)
+                }
+
+                HStack {
+                    Text("Landing Height")
+                    TextField("Meters", text: self.$viewModel.landingHeight)
+                        .multilineTextAlignment(.trailing)
+                        .keyboardType(.decimalPad)
+                }
+
+                HStack {
+                    Text("Landing Angle")
+                    
+                    Spacer()
+                    
+                    Text("\(self.viewModel.landingAngle)°")
+                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
+                }
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        self.viewModel.landingPickerIsShown.toggle()
+                    }
+
+                if viewModel.landingPickerIsShown {
+                    RampPickerView(index: self.$viewModel.landingAngle, values: viewModel.possibleAngleRange)
+                }
+               
+                HStack {
+                    Text("Speed")
+                    TextField("m/s", text: self.$viewModel.speed)
+                        .multilineTextAlignment(.trailing)
+                        .keyboardType(.decimalPad)
+                }
+                
+           }
+                .edgesIgnoringSafeArea(.bottom)
+                .onTapGesture {
+                    UIApplication.shared.endEditing()
+                }
+                .navigationBarTitle("Jump Calculator", displayMode: .inline)
+                .navigationBarItems(
+                    leading:
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        Text("Cancel")
+                    }),
+                    trailing:
+                    Button(action: {
+                        self.viewModel.saveInput()
+                        self.presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        Text("Done")
+                            .fontWeight(.bold)
+                            .foregroundColor(viewModel.isValid ? Color.blue : Color.gray)
+                        }).disabled(!viewModel.isValid)
+                )
+        }
     }
 }
 
@@ -75,7 +176,6 @@ struct InputView: View {
 struct InputView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-//            GapView(viewModel: GapViewModel(params: GapParams.defaultParams))
             InputView(viewModel: InputViewModel(params: GapParams.defaultParams))
         }
     }

@@ -18,7 +18,7 @@ struct RampPickerRow: View {
     @Binding var value: Int
     
     var body: some View {
-        VStack() {
+        VStack {
             HStack {
                 Text(self.title)
                 
@@ -33,11 +33,6 @@ struct RampPickerRow: View {
             .padding(.horizontal)
             .contentShape(Rectangle())
             .frame(height: 35)
-//            .onTapGesture {
-//                self.viewController?.present(presentationStyle: .overCurrentContext, animated: true) {
-//                PickerView(param: self.$value)
-//                }
-//            }
     }
      
 }

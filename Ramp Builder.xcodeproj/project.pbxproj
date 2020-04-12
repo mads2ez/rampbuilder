@@ -12,6 +12,8 @@
 		A784889523DDB09B00CD8291 /* GapParamsStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A784889423DDB09B00CD8291 /* GapParamsStoreTests.swift */; };
 		D60FA1E123F32D4C002E8E0B /* GapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60FA1E023F32D4C002E8E0B /* GapViewModel.swift */; };
 		D616C31B23E0B80600FE0A52 /* GapParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616C31A23E0B80600FE0A52 /* GapParams.swift */; };
+		D65CC56624424218002955C4 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65CC56524424218002955C4 /* CardView.swift */; };
+		D65CC56824424268002955C4 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65CC56724424268002955C4 /* HeaderView.swift */; };
 		D6691F97243D16FC00D71EA0 /* RampButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6691F96243D16FC00D71EA0 /* RampButtonStyle.swift */; };
 		D6691F99243D176300D71EA0 /* RampPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6691F98243D176300D71EA0 /* RampPickerView.swift */; };
 		D697C5E023DA30A500F8FE4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D697C5DF23DA30A500F8FE4A /* AppDelegate.swift */; };
@@ -58,6 +60,8 @@
 		CDDB9E9649E3C7251DA98C82 /* libPods-Ramp Builder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Ramp Builder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D60FA1E023F32D4C002E8E0B /* GapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GapViewModel.swift; sourceTree = "<group>"; };
 		D616C31A23E0B80600FE0A52 /* GapParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GapParams.swift; sourceTree = "<group>"; };
+		D65CC56524424218002955C4 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		D65CC56724424268002955C4 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		D6691F96243D16FC00D71EA0 /* RampButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RampButtonStyle.swift; sourceTree = "<group>"; };
 		D6691F98243D176300D71EA0 /* RampPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RampPickerView.swift; sourceTree = "<group>"; };
 		D697C5DC23DA30A500F8FE4A /* Ramp Builder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ramp Builder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +135,19 @@
 			path = RampBuilderTests;
 			sourceTree = "<group>";
 		};
+		D65CC56924424374002955C4 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D6C3938023DA3CB90029F81F /* BlurView.swift */,
+				D6C3937423DA3B960029F81F /* Modal.swift */,
+				D6C3936E23DA3B4A0029F81F /* PickerView.swift */,
+				D65CC56524424218002955C4 /* CardView.swift */,
+				D65CC56724424268002955C4 /* HeaderView.swift */,
+				D6691F96243D16FC00D71EA0 /* RampButtonStyle.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		D67543B323F0A5180089C764 /* ContentView */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,9 +181,9 @@
 			isa = PBXGroup;
 			children = (
 				D6C3936423DA386E0029F81F /* Model */,
-				D67543B323F0A5180089C764 /* ContentView */,
-				D6C3936123DA37EC0029F81F /* Input */,
 				D6C3936223DA37FE0029F81F /* Gap */,
+				D6C3936123DA37EC0029F81F /* Input */,
+				D67543B323F0A5180089C764 /* ContentView */,
 				D6C3936923DA39000029F81F /* Helpers */,
 				D697C5DF23DA30A500F8FE4A /* AppDelegate.swift */,
 				D697C5E123DA30A500F8FE4A /* SceneDelegate.swift */,
@@ -192,11 +209,9 @@
 			children = (
 				D6C3936723DA38CB0029F81F /* InputViewModel.swift */,
 				D6C3936C23DA3A6E0029F81F /* InputView.swift */,
-				D6691F96243D16FC00D71EA0 /* RampButtonStyle.swift */,
 				D6C3937123DA3B570029F81F /* RampTextFieldView.swift */,
 				D6C3937023DA3B570029F81F /* RampPickerRow.swift */,
 				D6691F98243D176300D71EA0 /* RampPickerView.swift */,
-				D6C3936E23DA3B4A0029F81F /* PickerView.swift */,
 			);
 			path = Input;
 			sourceTree = "<group>";
@@ -227,9 +242,8 @@
 		D6C3936923DA39000029F81F /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				D65CC56924424374002955C4 /* UI */,
 				D6C3936A23DA39110029F81F /* Helpers.swift */,
-				D6C3938023DA3CB90029F81F /* BlurView.swift */,
-				D6C3937423DA3B960029F81F /* Modal.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -383,6 +397,7 @@
 				D697C5E023DA30A500F8FE4A /* AppDelegate.swift in Sources */,
 				A784888D23DDAEB500CD8291 /* GapParamsStore.swift in Sources */,
 				D6C3937323DA3B570029F81F /* RampTextFieldView.swift in Sources */,
+				D65CC56624424218002955C4 /* CardView.swift in Sources */,
 				D6B85D05242EB55000872565 /* Trajectory.swift in Sources */,
 				D6C3937523DA3B960029F81F /* Modal.swift in Sources */,
 				D697C5E223DA30A500F8FE4A /* SceneDelegate.swift in Sources */,
@@ -393,6 +408,7 @@
 				D616C31B23E0B80600FE0A52 /* GapParams.swift in Sources */,
 				D6C3938623DA3D310029F81F /* GridView.swift in Sources */,
 				D6C3938523DA3D310029F81F /* LegendView.swift in Sources */,
+				D65CC56824424268002955C4 /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

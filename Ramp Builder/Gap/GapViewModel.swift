@@ -11,14 +11,16 @@ import SwiftUI
 class GapViewModel: ObservableObject {
     @Published var gapParams: GapParams
     
-    private let store = GapParamsUserDefaults()
+    let store: GapParamsStore
     
-    init(params: GapParams) {
-        self.gapParams = params
+    init(store: GapParamsStore) {
+        self.store = store
+        self.gapParams = store.get() ?? GapParams.defaultParams
     }
     
-    convenience init(store: GapParamsStore) {
-        self.init(params: store.get() ?? GapParams.defaultParams)
+    convenience init(params: GapParams) {
+        self.init(store: GapParamsUserDefaults())
+        self.gapParams = params
     }
 }
 
@@ -86,5 +88,11 @@ extension GapViewModel {
     
     func getXArray(size: CGSize) -> [Double] {
         return Array(0...Int(size.width * 10)).map{Double($0) / 10}
+    }
+}
+
+extension GapViewModel {
+    var inputView: some View {
+        return InputView(viewModel: .init(store: self.store))
     }
 }
