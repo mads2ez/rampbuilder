@@ -14,7 +14,7 @@ struct RampPickerView: View {
     
     var body: some View {
         Picker(selection: $index, label: Text(""), content: {
-           ForEach(0..<values.count, id: \.self) {
+           ForEach(1..<values.count, id: \.self) {
             Text("\(self.values[$0])")
             }
         })

@@ -21,23 +21,19 @@ struct GapView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                blueprintView()
-                    .frame(minHeight: 220)
-                    .listRowInsets(EdgeInsets())
-                    .background(Color.white)
-                    .padding(.bottom, 20)
-                                
+                BluepPrintCard(params: viewModel.gapParams)
+                
                 takeoffCard()
                 
                 landingCard()
                 
                 gapCard()
-
+                
                 stiffnessCard()
             }
                 .background(Color(UIColor.systemGray6))
                 .edgesIgnoringSafeArea(.bottom)
-//                .onAppear(perform: viewModel.refresh)
+                .onAppear(perform: viewModel.refresh)
                 .sheet(isPresented: $inputShown, onDismiss: viewModel.refresh,
                        content: {
                         self.viewModel.inputView
@@ -47,7 +43,7 @@ struct GapView: View {
                     Button(action: {
                         self.inputShown = true
                     }, label: {
-                        Text("Edit")
+                        Text("Calculate")
                     }))
         }
     }
@@ -55,25 +51,6 @@ struct GapView: View {
 
 
 extension GapView {
-   fileprivate func blueprintView() -> some View {
-        return GeometryReader { geometry in
-            ZStack {
-                GridView(step: self.viewModel.step(geometry.size), color: Color.gray)
-                
-                GapShape(gapParams: self.viewModel.gapParams)
-                    .stroke(Color.blue, lineWidth: 2)
-                
-                Trajectory(gapParams:  self.viewModel.gapParams)
-                    .stroke(Color.green, lineWidth: 2)
-                
-//                TrajectoryShape(startPoint: self.viewModel.startPoint(CGSize(width: geometry.size.width, height: geometry.size.height/3)), data: self.viewModel.trajectoryPoints(CGSize(width: geometry.size.width, height: geometry.size.height/3)))
-//                    .stroke(Color.yellow, lineWidth: 2)
-            }
-            .background(Color.white)
-            .padding()
-        }
-    }
-    
     func takeoffCard() -> some View {
         return Section(header: Header(title: "Takeoff")) {
             Card {

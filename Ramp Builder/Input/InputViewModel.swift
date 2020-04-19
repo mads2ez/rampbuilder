@@ -102,7 +102,7 @@ class InputViewModel: ObservableObject {
     @Published var takeoffPickerIsShown = false
     @Published var landingPickerIsShown = false
     
-    var possibleAngleRange: [String] = Array(0...90).compactMap({String($0) + "°"})
+    var possibleAngleRange: [String] = Array(0...89 ).compactMap({String($0) + "°"})
     
     var isValid: Bool {
         if (self.gap.isEmpty || self.table.isEmpty || self.takeoffHeight.isEmpty || self.landingHeight.isEmpty || self.speed.isEmpty) {
