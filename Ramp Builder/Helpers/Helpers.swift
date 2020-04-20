@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 extension UIApplication {
     func endEditing() {
@@ -28,6 +29,10 @@ extension Double {
         }
 
         return Int(self)
+    }
+    
+    func toRadians() -> Double {
+        return self * .pi / 180
     }
 }
 
