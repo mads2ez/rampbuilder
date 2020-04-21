@@ -1,5 +1,5 @@
 //
-//  blueprintCard.swift
+//  BlueprintCard.swift
 //  Ramp Builder
 //
 //  Created by Madsbook on 14.04.2020.

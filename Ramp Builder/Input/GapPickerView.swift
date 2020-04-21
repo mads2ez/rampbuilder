@@ -1,5 +1,5 @@
 //
-//  RampPickerView.swift
+//  PickerView.swift
 //  Ramp Builder
 //
 //  Created by Madsbook on 07.04.2020.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct RampPickerView: View {
+struct GapPickerView: View {
     @Binding var index: Int
     var values: [String]
     
