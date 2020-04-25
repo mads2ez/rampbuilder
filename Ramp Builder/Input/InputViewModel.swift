@@ -12,6 +12,7 @@ class InputViewModel: ObservableObject {
     
     let store: GapParamsStore
     var params: GapParams
+    var analytics: AnalyticsService?
     
     init(store: GapParamsStore) {
         self.store = store
@@ -123,6 +124,9 @@ class InputViewModel: ObservableObject {
         store.set(params: params)
         
         print("height \(String(describing: self.params.takeoff.height)), angle \(String(describing: self.params.takeoff.angle)), land height \(String(describing: self.params.landing.height)), land angle \(String(describing: self.params.landing.angle))")
+        
+        analytics?.logEvent("Calculate Gap")
+
     }
 }
 

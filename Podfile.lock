@@ -1,3 +1,16 @@
-PODFILE CHECKSUM: d20ff7e6bb69fa3bc38d948340600586000ab337
+PODS:
+  - Amplitude-iOS (4.10.0)
 
-COCOAPODS: 1.8.4
+DEPENDENCIES:
+  - Amplitude-iOS (~> 4.5)
+
+SPEC REPOS:
+  trunk:
+    - Amplitude-iOS
+
+SPEC CHECKSUMS:
+  Amplitude-iOS: 7d8cdc3408ba35c2e68368fc7c692cd104606b94
+
+PODFILE CHECKSUM: 1748e08f2bc2ca8a937ebb3a5cb1471ec0b4b5f7
+
+COCOAPODS: 1.9.1

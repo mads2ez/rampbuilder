@@ -27,10 +27,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let store: GapParamsStore = GapParamsUserDefaults()
         
-//        let contentViewModel = ContentViewModel(store: store)
-//        let contentView = ContentView(viewModel: contentViewModel)
-//            .environment(\.managedObjectContext, context)
-        
         let gapViewModel = GapViewModel(store: store)
         let gapView = GapView(viewModel: gapViewModel)
             .environment(\.managedObjectContext, context)

@@ -10,6 +10,7 @@ import SwiftUI
 
 class GapViewModel: ObservableObject {
     @Published var gapParams: GapParams
+    var analytics: AnalyticsService?
     
     let store: GapParamsStore
     
@@ -30,6 +31,8 @@ extension GapViewModel {
     }
     
     var inputView: some View {
-        return InputView(viewModel: .init(store: self.store))
+        let inputView = InputView(viewModel: .init(store: self.store))
+        inputView.viewModel.analytics = self.analytics
+        return inputView
     }
 }

@@ -14,6 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let analytics: AnalyticsService = AmplitudeAnalyticsService()
+        analytics.initialize()
+        analytics.logEvent("Session Start")
         return true
     }
 

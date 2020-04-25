@@ -1,5 +1,5 @@
 //
-//  Analytics.swift
+//  AnalyticsService.swift
 //  Ramp Builder
 //
 //  Created by Madsbook on 25.04.2020.
@@ -11,4 +11,5 @@ import Foundation
 protocol AnalyticsService {
     func initialize()
     func logEvent(_ :String)
+    func logEvent(_ :String, eventProperties: [AnyHashable : Any]!)
 }
