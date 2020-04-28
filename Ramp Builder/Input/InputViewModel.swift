@@ -123,6 +123,11 @@ class InputViewModel: ObservableObject {
         store.set(params: params)
         
         print("height \(String(describing: self.params.takeoff.height)), angle \(String(describing: self.params.takeoff.angle)), land height \(String(describing: self.params.landing.height)), land angle \(String(describing: self.params.landing.angle))")
+        
+        let props = ["takeoff height": String(describing: self.params.takeoff.height), "takeoff angle": String(describing: self.params.takeoff.angle), "takeoff radius": String(describing: self.params.takeoffRadius), "landing height": String(describing: self.params.landing.height), "landing angle": String(describing: self.params.landing.angle), "landing table": String(describing: self.params.landing.table), "gap": String(describing: self.params.gap), "speed": String(describing: self.params.speed), "stiffness": String(describing: self.params.landingStiffness), "max height": String(describing: self.params.maxHeight)]
+        
+        AnalyticsManager.instance.logEvent("Calculate Gap", eventProperties: props)
+
     }
 }
 
