@@ -9,18 +9,18 @@
 import Foundation
 import Combine
 
-struct TakeoffParams: Codable, Hashable {
+struct TakeoffParams: Codable {
     var height: Double = 0
     var angle: Double = 0
 }
 
-struct LandingParams: Codable, Hashable {
+struct LandingParams: Codable {
     var height: Double = 0
     var angle: Double = 0
     var table: Double = 0
 }
 
-struct GapParams: Codable, Hashable {
+struct GapParams: Codable {
     var takeoff: TakeoffParams = .init()
     var landing: LandingParams = .init()
     var gap: Double = 0

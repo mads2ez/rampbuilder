@@ -3,9 +3,9 @@
 
 target 'Ramp Builder' do
   # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
+  use_modular_headers!
 
   # Pods for Ramp Builder
-  pod 'Amplitude-iOS', '~> 4.5'
+  pod 'Amplitude-iOS', '~> 4.10'
 
 end

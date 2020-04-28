@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		A784888D23DDAEB500CD8291 /* GapParamsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A784888C23DDAEB500CD8291 /* GapParamsStore.swift */; };
 		A784889523DDB09B00CD8291 /* GapParamsStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A784889423DDB09B00CD8291 /* GapParamsStoreTests.swift */; };
-		BEFC185D7906B0D73B92294B /* Pods_Ramp_Builder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 646C976A7A5983A54BC3C51E /* Pods_Ramp_Builder.framework */; };
 		D60FA1E123F32D4C002E8E0B /* GapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60FA1E023F32D4C002E8E0B /* GapViewModel.swift */; };
 		D6129E7A2443A36300226E64 /* BlueprintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6129E792443A36300226E64 /* BlueprintView.swift */; };
 		D616C31B23E0B80600FE0A52 /* GapParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616C31A23E0B80600FE0A52 /* GapParams.swift */; };
@@ -34,6 +33,7 @@
 		D6C3937B23DA3C150029F81F /* GapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C3937A23DA3C150029F81F /* GapView.swift */; };
 		D6C3938123DA3CB90029F81F /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C3938023DA3CB90029F81F /* BlurView.swift */; };
 		D6F38F0E244641C500823B66 /* BlueprintCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F38F0D244641C500823B66 /* BlueprintCard.swift */; };
+		F3DDE3BEA307404609454900 /* libPods-Ramp Builder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E46A5CC5FA4AAFDCFCB3B2A /* libPods-Ramp Builder.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +48,7 @@
 
 /* Begin PBXFileReference section */
 		25C3FD73C0297E8A4E6132D0 /* Pods-Ramp Builder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ramp Builder.debug.xcconfig"; path = "Target Support Files/Pods-Ramp Builder/Pods-Ramp Builder.debug.xcconfig"; sourceTree = "<group>"; };
-		646C976A7A5983A54BC3C51E /* Pods_Ramp_Builder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ramp_Builder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E46A5CC5FA4AAFDCFCB3B2A /* libPods-Ramp Builder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Ramp Builder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A784888C23DDAEB500CD8291 /* GapParamsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GapParamsStore.swift; sourceTree = "<group>"; };
 		A784889223DDB09B00CD8291 /* RampBuilderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RampBuilderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A784889423DDB09B00CD8291 /* GapParamsStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GapParamsStoreTests.swift; sourceTree = "<group>"; };
@@ -94,7 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEFC185D7906B0D73B92294B /* Pods_Ramp_Builder.framework in Frameworks */,
+				F3DDE3BEA307404609454900 /* libPods-Ramp Builder.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,7 +113,7 @@
 		7AC6A48394F96DC7285182B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				646C976A7A5983A54BC3C51E /* Pods_Ramp_Builder.framework */,
+				2E46A5CC5FA4AAFDCFCB3B2A /* libPods-Ramp Builder.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -257,7 +257,7 @@
 				D697C5D823DA30A500F8FE4A /* Sources */,
 				D697C5D923DA30A500F8FE4A /* Frameworks */,
 				D697C5DA23DA30A500F8FE4A /* Resources */,
-				FE96A616B34585CD931EFE28 /* [CP] Embed Pods Frameworks */,
+				4EC772D25EDEAD6C1F9CB1D7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -327,6 +327,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4EC772D25EDEAD6C1F9CB1D7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Ramp Builder/Pods-Ramp Builder-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Ramp Builder/Pods-Ramp Builder-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Ramp Builder/Pods-Ramp Builder-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		DC258AB051F94FED20DFF4BC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -347,23 +364,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FE96A616B34585CD931EFE28 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Ramp Builder/Pods-Ramp Builder-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Ramp Builder/Pods-Ramp Builder-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Ramp Builder/Pods-Ramp Builder-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

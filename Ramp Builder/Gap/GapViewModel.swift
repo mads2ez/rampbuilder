@@ -32,7 +32,6 @@ extension GapViewModel {
     
     var inputView: some View {
         let inputView = InputView(viewModel: .init(store: self.store))
-        inputView.viewModel.analytics = self.analytics
         return inputView
     }
 }
