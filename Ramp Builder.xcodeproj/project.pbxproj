@@ -9,15 +9,20 @@
 /* Begin PBXBuildFile section */
 		A784888D23DDAEB500CD8291 /* GapParamsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A784888C23DDAEB500CD8291 /* GapParamsStore.swift */; };
 		A784889523DDB09B00CD8291 /* GapParamsStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A784889423DDB09B00CD8291 /* GapParamsStoreTests.swift */; };
-		D60FA1E123F32D4C002E8E0B /* GapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60FA1E023F32D4C002E8E0B /* GapViewModel.swift */; };
-		D6129E7A2443A36300226E64 /* BlueprintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6129E792443A36300226E64 /* BlueprintView.swift */; };
 		D616C31B23E0B80600FE0A52 /* GapParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616C31A23E0B80600FE0A52 /* GapParams.swift */; };
+		D62CF2282459EB8E0097A69E /* InputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62CF21F2459EB8E0097A69E /* InputViewModel.swift */; };
+		D62CF2292459EB8E0097A69E /* GapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62CF2202459EB8E0097A69E /* GapViewModel.swift */; };
+		D62CF22A2459EB8E0097A69E /* BlueprintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62CF2222459EB8E0097A69E /* BlueprintView.swift */; };
+		D62CF22B2459EB8E0097A69E /* GapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62CF2232459EB8E0097A69E /* GapView.swift */; };
+		D62CF22C2459EB8E0097A69E /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62CF2242459EB8E0097A69E /* InfoView.swift */; };
+		D62CF22D2459EB8E0097A69E /* BlueprintCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62CF2252459EB8E0097A69E /* BlueprintCard.swift */; };
+		D62CF22E2459EB8E0097A69E /* GapPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62CF2262459EB8E0097A69E /* GapPickerView.swift */; };
+		D62CF22F2459EB8E0097A69E /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62CF2272459EB8E0097A69E /* InputView.swift */; };
 		D65CC56624424218002955C4 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65CC56524424218002955C4 /* CardView.swift */; };
 		D65CC56824424268002955C4 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65CC56724424268002955C4 /* HeaderView.swift */; };
 		D66235E72454BF2F004D4DF8 /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66235E62454BF2F004D4DF8 /* AnalyticsService.swift */; };
 		D66235E92454C075004D4DF8 /* AmplitudeAnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66235E82454C075004D4DF8 /* AmplitudeAnalyticsService.swift */; };
 		D6691F97243D16FC00D71EA0 /* RampButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6691F96243D16FC00D71EA0 /* RampButtonStyle.swift */; };
-		D6691F99243D176300D71EA0 /* GapPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6691F98243D176300D71EA0 /* GapPickerView.swift */; };
 		D697C5E023DA30A500F8FE4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D697C5DF23DA30A500F8FE4A /* AppDelegate.swift */; };
 		D697C5E223DA30A500F8FE4A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D697C5E123DA30A500F8FE4A /* SceneDelegate.swift */; };
 		D697C5E523DA30A500F8FE4A /* Ramp_Builder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D697C5E323DA30A500F8FE4A /* Ramp_Builder.xcdatamodeld */; };
@@ -25,14 +30,10 @@
 		D697C5EC23DA30AA00F8FE4A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D697C5EB23DA30AA00F8FE4A /* Preview Assets.xcassets */; };
 		D697C5EF23DA30AA00F8FE4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D697C5ED23DA30AA00F8FE4A /* LaunchScreen.storyboard */; };
 		D6C3936623DA388B0029F81F /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C3936523DA388B0029F81F /* Calculator.swift */; };
-		D6C3936823DA38CB0029F81F /* InputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C3936723DA38CB0029F81F /* InputViewModel.swift */; };
 		D6C3936B23DA39110029F81F /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C3936A23DA39110029F81F /* Helpers.swift */; };
-		D6C3936D23DA3A6E0029F81F /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C3936C23DA3A6E0029F81F /* InputView.swift */; };
 		D6C3936F23DA3B4A0029F81F /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C3936E23DA3B4A0029F81F /* PickerView.swift */; };
 		D6C3937523DA3B960029F81F /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C3937423DA3B960029F81F /* Modal.swift */; };
-		D6C3937B23DA3C150029F81F /* GapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C3937A23DA3C150029F81F /* GapView.swift */; };
 		D6C3938123DA3CB90029F81F /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C3938023DA3CB90029F81F /* BlurView.swift */; };
-		D6F38F0E244641C500823B66 /* BlueprintCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F38F0D244641C500823B66 /* BlueprintCard.swift */; };
 		F3DDE3BEA307404609454900 /* libPods-Ramp Builder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E46A5CC5FA4AAFDCFCB3B2A /* libPods-Ramp Builder.a */; };
 /* End PBXBuildFile section */
 
@@ -54,15 +55,20 @@
 		A784889423DDB09B00CD8291 /* GapParamsStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GapParamsStoreTests.swift; sourceTree = "<group>"; };
 		A784889623DDB09B00CD8291 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC85D64F6DE85DA201FA3F79 /* Pods-Ramp Builder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ramp Builder.release.xcconfig"; path = "Target Support Files/Pods-Ramp Builder/Pods-Ramp Builder.release.xcconfig"; sourceTree = "<group>"; };
-		D60FA1E023F32D4C002E8E0B /* GapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GapViewModel.swift; sourceTree = "<group>"; };
-		D6129E792443A36300226E64 /* BlueprintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueprintView.swift; sourceTree = "<group>"; };
 		D616C31A23E0B80600FE0A52 /* GapParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GapParams.swift; sourceTree = "<group>"; };
+		D62CF21F2459EB8E0097A69E /* InputViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputViewModel.swift; sourceTree = "<group>"; };
+		D62CF2202459EB8E0097A69E /* GapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GapViewModel.swift; sourceTree = "<group>"; };
+		D62CF2222459EB8E0097A69E /* BlueprintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueprintView.swift; sourceTree = "<group>"; };
+		D62CF2232459EB8E0097A69E /* GapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GapView.swift; sourceTree = "<group>"; };
+		D62CF2242459EB8E0097A69E /* InfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		D62CF2252459EB8E0097A69E /* BlueprintCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueprintCard.swift; sourceTree = "<group>"; };
+		D62CF2262459EB8E0097A69E /* GapPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GapPickerView.swift; sourceTree = "<group>"; };
+		D62CF2272459EB8E0097A69E /* InputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		D65CC56524424218002955C4 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		D65CC56724424268002955C4 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		D66235E62454BF2F004D4DF8 /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
 		D66235E82454C075004D4DF8 /* AmplitudeAnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmplitudeAnalyticsService.swift; sourceTree = "<group>"; };
 		D6691F96243D16FC00D71EA0 /* RampButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RampButtonStyle.swift; sourceTree = "<group>"; };
-		D6691F98243D176300D71EA0 /* GapPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GapPickerView.swift; sourceTree = "<group>"; };
 		D697C5DC23DA30A500F8FE4A /* Ramp Builder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ramp Builder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D697C5DF23DA30A500F8FE4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D697C5E123DA30A500F8FE4A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,14 +78,10 @@
 		D697C5EE23DA30AA00F8FE4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D697C5F023DA30AA00F8FE4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6C3936523DA388B0029F81F /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
-		D6C3936723DA38CB0029F81F /* InputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewModel.swift; sourceTree = "<group>"; };
 		D6C3936A23DA39110029F81F /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
-		D6C3936C23DA3A6E0029F81F /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		D6C3936E23DA3B4A0029F81F /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		D6C3937423DA3B960029F81F /* Modal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
-		D6C3937A23DA3C150029F81F /* GapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GapView.swift; sourceTree = "<group>"; };
 		D6C3938023DA3CB90029F81F /* BlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
-		D6F38F0D244641C500823B66 /* BlueprintCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueprintCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,28 @@
 			path = RampBuilderTests;
 			sourceTree = "<group>";
 		};
+		D62CF21E2459EB8E0097A69E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D62CF21F2459EB8E0097A69E /* InputViewModel.swift */,
+				D62CF2202459EB8E0097A69E /* GapViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D62CF2212459EB8E0097A69E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D62CF2232459EB8E0097A69E /* GapView.swift */,
+				D62CF2272459EB8E0097A69E /* InputView.swift */,
+				D62CF2242459EB8E0097A69E /* InfoView.swift */,
+				D62CF2222459EB8E0097A69E /* BlueprintView.swift */,
+				D62CF2252459EB8E0097A69E /* BlueprintCard.swift */,
+				D62CF2262459EB8E0097A69E /* GapPickerView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		D65CC56924424374002955C4 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,8 +188,8 @@
 			isa = PBXGroup;
 			children = (
 				D6C3936423DA386E0029F81F /* Model */,
-				D6C3936223DA37FE0029F81F /* Gap */,
-				D6C3936123DA37EC0029F81F /* Input */,
+				D62CF21E2459EB8E0097A69E /* ViewModel */,
+				D62CF2212459EB8E0097A69E /* View */,
 				D6C3936923DA39000029F81F /* Helpers */,
 				D697C5DF23DA30A500F8FE4A /* AppDelegate.swift */,
 				D697C5E123DA30A500F8FE4A /* SceneDelegate.swift */,
@@ -184,27 +208,6 @@
 				D697C5EB23DA30AA00F8FE4A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		D6C3936123DA37EC0029F81F /* Input */ = {
-			isa = PBXGroup;
-			children = (
-				D6C3936723DA38CB0029F81F /* InputViewModel.swift */,
-				D6C3936C23DA3A6E0029F81F /* InputView.swift */,
-				D6691F98243D176300D71EA0 /* GapPickerView.swift */,
-			);
-			path = Input;
-			sourceTree = "<group>";
-		};
-		D6C3936223DA37FE0029F81F /* Gap */ = {
-			isa = PBXGroup;
-			children = (
-				D60FA1E023F32D4C002E8E0B /* GapViewModel.swift */,
-				D6C3937A23DA3C150029F81F /* GapView.swift */,
-				D6F38F0D244641C500823B66 /* BlueprintCard.swift */,
-				D6129E792443A36300226E64 /* BlueprintView.swift */,
-			);
-			path = Gap;
 			sourceTree = "<group>";
 		};
 		D6C3936423DA386E0029F81F /* Model */ = {
@@ -381,28 +384,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6C3936D23DA3A6E0029F81F /* InputView.swift in Sources */,
-				D6C3936823DA38CB0029F81F /* InputViewModel.swift in Sources */,
 				D6C3938123DA3CB90029F81F /* BlurView.swift in Sources */,
-				D60FA1E123F32D4C002E8E0B /* GapViewModel.swift in Sources */,
 				D6C3936F23DA3B4A0029F81F /* PickerView.swift in Sources */,
 				D6C3936B23DA39110029F81F /* Helpers.swift in Sources */,
-				D6691F99243D176300D71EA0 /* GapPickerView.swift in Sources */,
+				D62CF22F2459EB8E0097A69E /* InputView.swift in Sources */,
 				D6691F97243D16FC00D71EA0 /* RampButtonStyle.swift in Sources */,
+				D62CF22B2459EB8E0097A69E /* GapView.swift in Sources */,
+				D62CF2292459EB8E0097A69E /* GapViewModel.swift in Sources */,
+				D62CF22D2459EB8E0097A69E /* BlueprintCard.swift in Sources */,
 				D697C5E023DA30A500F8FE4A /* AppDelegate.swift in Sources */,
 				A784888D23DDAEB500CD8291 /* GapParamsStore.swift in Sources */,
+				D62CF22C2459EB8E0097A69E /* InfoView.swift in Sources */,
 				D65CC56624424218002955C4 /* CardView.swift in Sources */,
+				D62CF22A2459EB8E0097A69E /* BlueprintView.swift in Sources */,
 				D6C3937523DA3B960029F81F /* Modal.swift in Sources */,
 				D66235E72454BF2F004D4DF8 /* AnalyticsService.swift in Sources */,
 				D697C5E223DA30A500F8FE4A /* SceneDelegate.swift in Sources */,
 				D66235E92454C075004D4DF8 /* AmplitudeAnalyticsService.swift in Sources */,
+				D62CF2282459EB8E0097A69E /* InputViewModel.swift in Sources */,
+				D62CF22E2459EB8E0097A69E /* GapPickerView.swift in Sources */,
 				D6C3936623DA388B0029F81F /* Calculator.swift in Sources */,
-				D6C3937B23DA3C150029F81F /* GapView.swift in Sources */,
 				D697C5E523DA30A500F8FE4A /* Ramp_Builder.xcdatamodeld in Sources */,
 				D616C31B23E0B80600FE0A52 /* GapParams.swift in Sources */,
-				D6F38F0E244641C500823B66 /* BlueprintCard.swift in Sources */,
 				D65CC56824424268002955C4 /* HeaderView.swift in Sources */,
-				D6129E7A2443A36300226E64 /* BlueprintView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
