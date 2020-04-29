@@ -1,0 +1,5 @@
+${PODS_ROOT}/Target Support Files/Pods-Ramp Builder/Pods-Ramp Builder-resources.sh
+${PODS_ROOT}/Amplitude-iOS/Sources/Amplitude/api.amplitude.com.der
+${PODS_ROOT}/Amplitude-iOS/Sources/Amplitude/ComodoCaLimitedRsaCertificationAuthority.der
+${PODS_ROOT}/Amplitude-iOS/Sources/Amplitude/ComodoRsaCA.der
+${PODS_ROOT}/Amplitude-iOS/Sources/Amplitude/ComodoRsaDomainValidationCA.der

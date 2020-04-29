@@ -1,0 +1,6 @@
+framework module Pods_Ramp_Builder {
+  umbrella header "Pods-Ramp Builder-umbrella.h"
+
+  export *
+  module * { export * }
+}
