@@ -96,8 +96,11 @@ struct BlueprintView: View {
 
             // trajectory
             Path { path in
-                path.move(to: self.startPoint(geometry.size))
-                path.addLines(self.trajectoryPoints(geometry.size))
+                let startPont = self.startPoint(geometry.size)
+                let trajectoryPoints = self.trajectoryPoints(geometry.size)
+                
+                path.move(to: startPont)
+                path.addLines(trajectoryPoints)
                 
             }
                 .stroke(Color.green, style: StrokeStyle(lineWidth: 2, dash: [10]))
@@ -137,11 +140,11 @@ extension BlueprintView {
     }
 
     func xOffset(_ line: Double, size: CGSize) -> CGFloat {
-        CGFloat(line) * xWidth(size.width, count: Int(size.width / calcStep(size)))
+        CGFloat(line) * calcStep(size)
     }
 
     func yOffset(_ line: Double, size: CGSize) -> CGFloat {
-        size.height - CGFloat(line) * yHeight(size.height, count: Int(size.height / calcStep(size)))
+        size.height - CGFloat(line) * calcStep(size)
     }
 
     var startPoint: (_ size: CGSize) -> CGPoint {
