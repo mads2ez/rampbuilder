@@ -10,6 +10,8 @@ import SwiftUI
 
 class GapViewModel: ObservableObject {
     @Published var gapParams: GapParams
+    @Published var inputShown: Bool = false
+    @Published var infoShown: Bool = false
     
     let store: GapParamsStore
     
