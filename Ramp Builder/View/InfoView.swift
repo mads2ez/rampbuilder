@@ -13,22 +13,33 @@ struct InfoView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                Text("Jumps can be dangerous and may harm your health. Ramp Builder provides preliminary calculations, which can not be used as a guide. These calculations do not take into account wind and other external factors. Possible health risk is the sole responsibility of the user.")
-                .padding()
-
-                
-                Spacer()
-                
-                Button(action: {
-                    let formattedString = "mailto:maximsivtsev@gmail.com"
-                    guard let url = URL(string: formattedString) else { return }
-                    UIApplication.shared.open(url)
-                }) {
-                   Text("Any feedback is appreciated")
+            List {
+                Section {
+                    Text("Ramp Builder is a tool for pre-calculation of the ramp dimensions and jump length. Be cautious, these calculations do not take into account riding technique, wind, and other factors. Always evaluate your skills and wear a helmet. Ride more, stay safe!")
+                        .padding(.vertical)
                 }
-                .padding()
+                
+                Section() {
+                    Button(action: {
+                        let formattedString = "mailto:maxim.sivtsev@icloud.com"
+                        guard let url = URL(string: formattedString) else { return }
+                        UIApplication.shared.open(url)
+                    }) {
+                       Text("Contact a developer")
+                    }
+                }
+                
+                
+                Section {
+                    HStack {
+                        Text("Version")
+                        Spacer()
+                        Text("1.0.0").foregroundColor(Color.gray)
+                    }
+                    
+                }
             }
+                .listStyle(GroupedListStyle())
                 .navigationBarTitle("Info", displayMode: .inline)
                 .navigationBarItems(
                     leading:

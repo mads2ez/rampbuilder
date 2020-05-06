@@ -14,6 +14,7 @@ struct Header: View {
     var body: some View {
         Text(title)
             .font(.headline)
+            .fontWeight(.bold)
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal)
     }

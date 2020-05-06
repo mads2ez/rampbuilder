@@ -39,7 +39,7 @@ struct GapView: View {
                         self.viewModel.infoShown = true
                     }, label: {
                         Image(systemName: "info.circle")
-                            .imageScale(.large)
+                            .font(Font.system(.title))
                     })
                         .sheet(isPresented: $viewModel.infoShown, onDismiss: viewModel.refresh,
                             content: {
