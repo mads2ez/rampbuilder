@@ -10,11 +10,12 @@ import Foundation
 import Amplitude_iOS
 
 final class AmplitudeAnalyticsService: AnalyticsService {
-    private static let APIkey = "4b66421841ca452acaf2122276a2a1d1"
+    //    private static let APIkey = <INSERT YOUR API KEY HERE>
+    private static let APIKey = APIKeys.amplitudeAPIKey.rawValue
     
     func initialize() {
         Amplitude.instance().trackingSessionEvents = true
-        Amplitude.instance().initializeApiKey(AmplitudeAnalyticsService.APIkey)
+        Amplitude.instance().initializeApiKey(AmplitudeAnalyticsService.APIKey)
     }
     
     func logEvent(_ event: String) {

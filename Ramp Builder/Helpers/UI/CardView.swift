@@ -10,7 +10,7 @@ import SwiftUI
 
 struct Card<Content: View>: View {
     private var content: Content
-
+    
     init(@ViewBuilder content: @escaping () -> Content) {
         self.content = content()
     }
@@ -21,10 +21,9 @@ struct Card<Content: View>: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
         .padding()
-        .background(Color.white)
+        .background(Color(UIColor.tertiarySystemBackground))
         .cornerRadius(10)
         .padding(.horizontal)
         .padding(.bottom, 20)
-        .shadow(radius: 1)
     }
 }

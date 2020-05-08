@@ -188,6 +188,6 @@ extension BlueprintView {
 
 struct BlueprintView_Previews: PreviewProvider {
     static var previews: some View {
-        BlueprintView(params: GapParams.defaultParams)
+        BlueprintView(params: GapParams.defaultParams).environment(\.colorScheme, .dark)
     }
 }

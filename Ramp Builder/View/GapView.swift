@@ -19,7 +19,11 @@ struct GapView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                BluepPrintCard(params: viewModel.gapParams)
+                blueprintView()
+                
+                
+                
+                
                 
                 takeoffCard()
                 
@@ -29,7 +33,7 @@ struct GapView: View {
                 
                 stiffnessCard()
             }
-                .background(Color(UIColor.systemGray6))
+                .background(Color(UIColor.systemGroupedBackground))
                 .edgesIgnoringSafeArea(.bottom)
                 .onAppear(perform: viewModel.refresh)
                 
@@ -39,21 +43,12 @@ struct GapView: View {
                         self.viewModel.infoShown = true
                     }, label: {
                         Image(systemName: "info.circle")
-                            .font(Font.system(.title))
+                            .font(.system(size: 24))
                     })
                         .sheet(isPresented: $viewModel.infoShown, onDismiss: viewModel.refresh,
                             content: {
                                 self.viewModel.infoView
-                            }), trailing:
-                    Button(action: {
-                        self.viewModel.inputShown = true
-                    }, label: {
-                        Text("Calculate")
-                    })
-                        .sheet(isPresented: $viewModel.inputShown, onDismiss: viewModel.refresh,
-                               content: {
-                                self.viewModel.inputView
-                        })
+                            })
             )
         }
     }
@@ -61,6 +56,35 @@ struct GapView: View {
 
 
 extension GapView {
+    func blueprintView() -> some View {
+        return ZStack {
+            Rectangle()
+                .fill(Color(UIColor.tertiarySystemBackground))
+                .shadow(color: Color.gray, radius: 1)
+            
+            VStack {
+                BlueprintView(params: viewModel.gapParams)
+                    .padding(.bottom, 25)
+                    .frame(width: UIScreen.main.bounds.width, height: 300)
+                
+                Divider()
+                
+                Button(action: {
+                    self.viewModel.inputShown = true
+                }, label: {
+                    Text("Calculate")
+                        .fontWeight(.semibold)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    })
+                    .sheet(isPresented: self.$viewModel.inputShown, onDismiss: self.viewModel.refresh,
+                           content: {
+                            self.viewModel.inputView
+                    })
+            }
+        }
+        .padding(.bottom, 15)
+    }
+    
     func takeoffCard() -> some View {
         return Section(header: Header(title: "Takeoff")) {
             Card {
@@ -110,8 +134,10 @@ extension GapView {
                 VStack {
                     HStack {
                         VStack {
-                            Text("Height:").font(.caption)
-                            Text("\(self.viewModel.gapParams.landing.height.toString(format: ".1")) m").font(.headline)
+                            Text("Height:")
+                                .font(.caption)
+                            Text("\(self.viewModel.gapParams.landing.height.toString(format: ".1")) m")
+                                .font(.headline)
                         }
                         .frame(minWidth: 0, maxWidth: .infinity)
 
@@ -166,13 +192,14 @@ extension GapView {
         return Section {
             Card {
                 VStack(alignment: .leading) {
-                    Text("Landing stiffness: \((self.viewModel.gapParams.landingStiffness.toString(format: ".1"))) m").fixedSize(horizontal: false, vertical: true)
+                    Text("Landing stiffness: \((self.viewModel.gapParams.landingStiffness.toString(format: ".1"))) m")
+                        .fixedSize(horizontal: false, vertical: true)
 
                     Divider()
                     
                     Text("Stiffness is equivalent to the height of the drop on a flat landing")
                         .font(.caption)
-                        .foregroundColor(Color.gray)
+                        .foregroundColor(.secondary)
                 }
             }
         }
@@ -215,6 +242,6 @@ extension GapView {
 
 struct GapView_Previews: PreviewProvider {
     static var previews: some View {
-        GapView(viewModel: GapViewModel(params: GapParams.defaultParams))
+        GapView(viewModel: GapViewModel(params: GapParams.defaultParams)).environment(\.colorScheme, .light)
     }
 }

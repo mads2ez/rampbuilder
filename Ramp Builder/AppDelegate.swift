@@ -17,6 +17,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let amplitude = AmplitudeAnalyticsService()
         AnalyticsManager.instance.add(service: amplitude)
         AnalyticsManager.instance.initialize()
+        
+        
+        let hasAlreadyLaunched = UserDefaults.standard.bool(forKey: "hasAlreadyLaunched")
+        
+        //check first launched
+        if (!hasAlreadyLaunched) {
+            AnalyticsManager.instance.logEvent("First open")
+            UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
+        }
+        
         AnalyticsManager.instance.logEvent("Session start")
         return true
     }

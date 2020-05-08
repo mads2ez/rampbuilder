@@ -15,9 +15,9 @@
 		D62CF22A2459EB8E0097A69E /* BlueprintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62CF2222459EB8E0097A69E /* BlueprintView.swift */; };
 		D62CF22B2459EB8E0097A69E /* GapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62CF2232459EB8E0097A69E /* GapView.swift */; };
 		D62CF22C2459EB8E0097A69E /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62CF2242459EB8E0097A69E /* InfoView.swift */; };
-		D62CF22D2459EB8E0097A69E /* BlueprintCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62CF2252459EB8E0097A69E /* BlueprintCard.swift */; };
 		D62CF22E2459EB8E0097A69E /* GapPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62CF2262459EB8E0097A69E /* GapPickerView.swift */; };
 		D62CF22F2459EB8E0097A69E /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62CF2272459EB8E0097A69E /* InputView.swift */; };
+		D62E3D9E2465D04E00CB441F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62E3D9D2465D04E00CB441F /* Constants.swift */; };
 		D65CC56624424218002955C4 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65CC56524424218002955C4 /* CardView.swift */; };
 		D65CC56824424268002955C4 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65CC56724424268002955C4 /* HeaderView.swift */; };
 		D66235E72454BF2F004D4DF8 /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66235E62454BF2F004D4DF8 /* AnalyticsService.swift */; };
@@ -61,9 +61,9 @@
 		D62CF2222459EB8E0097A69E /* BlueprintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueprintView.swift; sourceTree = "<group>"; };
 		D62CF2232459EB8E0097A69E /* GapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GapView.swift; sourceTree = "<group>"; };
 		D62CF2242459EB8E0097A69E /* InfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
-		D62CF2252459EB8E0097A69E /* BlueprintCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueprintCard.swift; sourceTree = "<group>"; };
 		D62CF2262459EB8E0097A69E /* GapPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GapPickerView.swift; sourceTree = "<group>"; };
 		D62CF2272459EB8E0097A69E /* InputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		D62E3D9D2465D04E00CB441F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D65CC56524424218002955C4 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		D65CC56724424268002955C4 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		D66235E62454BF2F004D4DF8 /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
@@ -145,8 +145,6 @@
 				D62CF2272459EB8E0097A69E /* InputView.swift */,
 				D62CF2242459EB8E0097A69E /* InfoView.swift */,
 				D62CF2222459EB8E0097A69E /* BlueprintView.swift */,
-				D62CF2252459EB8E0097A69E /* BlueprintCard.swift */,
-				D62CF2262459EB8E0097A69E /* GapPickerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -154,6 +152,7 @@
 		D65CC56924424374002955C4 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				D62CF2262459EB8E0097A69E /* GapPickerView.swift */,
 				D6C3938023DA3CB90029F81F /* BlurView.swift */,
 				D6C3937423DA3B960029F81F /* Modal.swift */,
 				D6C3936E23DA3B4A0029F81F /* PickerView.swift */,
@@ -218,6 +217,7 @@
 				D6C3936523DA388B0029F81F /* Calculator.swift */,
 				D66235E62454BF2F004D4DF8 /* AnalyticsService.swift */,
 				D66235E82454C075004D4DF8 /* AmplitudeAnalyticsService.swift */,
+				D62E3D9D2465D04E00CB441F /* Constants.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -391,7 +391,6 @@
 				D6691F97243D16FC00D71EA0 /* RampButtonStyle.swift in Sources */,
 				D62CF22B2459EB8E0097A69E /* GapView.swift in Sources */,
 				D62CF2292459EB8E0097A69E /* GapViewModel.swift in Sources */,
-				D62CF22D2459EB8E0097A69E /* BlueprintCard.swift in Sources */,
 				D697C5E023DA30A500F8FE4A /* AppDelegate.swift in Sources */,
 				A784888D23DDAEB500CD8291 /* GapParamsStore.swift in Sources */,
 				D62CF22C2459EB8E0097A69E /* InfoView.swift in Sources */,
@@ -407,6 +406,7 @@
 				D697C5E523DA30A500F8FE4A /* Ramp_Builder.xcdatamodeld in Sources */,
 				D616C31B23E0B80600FE0A52 /* GapParams.swift in Sources */,
 				D65CC56824424268002955C4 /* HeaderView.swift in Sources */,
+				D62E3D9E2465D04E00CB441F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
