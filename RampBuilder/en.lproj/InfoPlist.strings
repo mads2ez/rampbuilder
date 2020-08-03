@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  
+
+  Created by Madsbook on 14.07.2020.
+  
+*/
+
+NSLocationAlwaysandWhenInUseUsageDescription = "Location is used for tracking speed of the device";
+NSLocationWhenInUseUsageDescription = "Location is used for tracking speed of the device";
