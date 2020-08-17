@@ -32,6 +32,8 @@ class SpeedViewModel: NSObject, ObservableObject {
         }
     }
     
+    var locationList: [Double] = []
+    
     @Published var speed: Double = 0
         
     var maxSpeed: Double = 0
@@ -98,9 +100,14 @@ extension SpeedViewModel: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
         guard let speed = self.locationManager.location?.speed else { return }
         self.speed = speed
         
         self.maxSpeed = speed > maxSpeed ? speed : maxSpeed
+        
+        self.locationList.append(speed)
+    
+        print(self.locationList.last ?? "nope")
     }
 }

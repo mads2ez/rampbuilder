@@ -30,58 +30,52 @@ struct SpeedometerView: View {
     }
     
     var progress: CGFloat {
-        CGFloat(speed)
+        CGFloat(convertedSpeed.value)
     }
     
-    let colors = [Color(UIColor.systemIndigo), Color(UIColor.systemTeal),  Color(UIColor.systemTeal)]
+    let colors = [Color(UIColor.systemBlue), Color(UIColor.systemIndigo),  Color(UIColor.systemIndigo)]
     
     var body: some View {
         ZStack {
             VStack {
                 ZStack {
                     Circle()
-                        .trim(from: 0, to: 0.5)
+                        .trim(from: 0, to: 0.75)
+                        .rotation(.degrees(-45))
                         .stroke(Color.black.opacity(0.1), lineWidth: 50)
                     
                     Circle()
                         .trim(from: 0, to: self.setProgress())
+                        .rotation(.degrees(-45))
                         .stroke(AngularGradient(gradient: .init(colors: self.colors), center: .center, angle: .init(degrees: -50)), lineWidth: 50)
                         .shadow(color: self.colors[0], radius: 5, x: 0, y: 0)
                 }
                     .rotationEffect(.degrees(180))
-                
-                HStack {
-                    Text("0")
-                        .foregroundColor(self.colors[0])
-                    Spacer()
-                    Text("100")
-                        .foregroundColor(self.colors[0])
-                }
-                .font(.system(size: 10, weight: .bold))
-                .offset(y: -140)
             }
-            
             
             VStack {
-                Text(unit)
                 Text(value)
-                    .font(.system(size: 48, weight: .bold))
-                    .foregroundColor(self.colors[0])
+                    .font(.system(size: 100, weight: .bold))
+                Text(unit)
+                    .font(.system(size: 18, weight: .bold))
             }
-                .offset(y: -35)
+                .foregroundColor(Color("primary"))
         }
             .frame(width: 300, height: 300)
     }
     
-    func setProgress()->CGFloat{
+    func setProgress() -> CGFloat {
+        if self.convertedSpeed.value > 100 {
+            return 0.75
+        }
         
-        let temp = self.progress / 2
+        let temp = self.progress * 0.75
         return temp * 0.01
     }
 }
 
-//struct SpeedometerView_Previews: PreviewProvider {
-//    static var previews: some View {
-////        SpeedometerView()
-//    }
-//}
+struct SpeedometerView_Previews: PreviewProvider {
+    static var previews: some View {
+        SpeedometerView(speed: .constant(100))
+    }
+}
