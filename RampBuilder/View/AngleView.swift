@@ -19,7 +19,7 @@ struct AngleView: View {
                 .edgesIgnoringSafeArea(.all)
                 
             Text(viewModel.angle + "°")
-                .font(.system(size: 48, weight: .light))
+                .font(.system(size: 70, weight: .light))
         }
             .onAppear{
                 self.viewModel.perform()
