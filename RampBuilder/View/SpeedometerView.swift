@@ -9,9 +9,7 @@
 import SwiftUI
 
 struct SpeedometerView: View {
-    @Binding var speed: Double
-    
-    let formatter = MeasurementFormatter()
+    var speed: Double
     
     var convertedSpeed: Measurement<UnitSpeed> {
         let speed = Measurement(value: self.speed < 0 ? 0 : self.speed, unit: UnitSpeed.metersPerSecond)
@@ -19,18 +17,20 @@ struct SpeedometerView: View {
     }
     
     var value: String {
+        let formatter = MeasurementFormatter()
         formatter.numberFormatter.maximumFractionDigits = 0
         return formatter.numberFormatter.string(from: NSNumber(value: convertedSpeed.value)) ?? "0"
     }
     
     var unit: String {
+        let formatter = MeasurementFormatter()
         formatter.unitOptions = [.providedUnit]
         formatter.unitStyle = .short
         return formatter.string(from: convertedSpeed.unit)
     }
     
     var progress: CGFloat {
-        CGFloat(convertedSpeed.value)
+        CGFloat(speed)
     }
     
     let colors = [Color(UIColor.systemBlue), Color(UIColor.systemIndigo),  Color(UIColor.systemIndigo)]
@@ -76,6 +76,6 @@ struct SpeedometerView: View {
 
 struct SpeedometerView_Previews: PreviewProvider {
     static var previews: some View {
-        SpeedometerView(speed: .constant(100))
+        SpeedometerView(speed: 1)
     }
 }

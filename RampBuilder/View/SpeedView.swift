@@ -9,9 +9,16 @@
 import SwiftUI
 
 struct SpeedView: View {
-    @ObservedObject var viewModel = SpeedViewModel()
-    
+    @ObservedObject var viewModel: SpeedViewModel
     @Binding var navBarHidden: Bool
+
+    
+    init(viewModel: SpeedViewModel, navBarHidden: Binding<Bool>) {
+        UITableView.appearance().backgroundColor = UIColor(named: "bg")
+
+        self.viewModel = viewModel
+        self._navBarHidden = navBarHidden
+    }
     
     var body: some View {
         ZStack {
@@ -19,10 +26,7 @@ struct SpeedView: View {
                 .edgesIgnoringSafeArea(.all)
             
             VStack(spacing: 0) {
-                SpeedometerView(speed: self.$viewModel.speed)
-                
-//                SpeedChart(points: [0,0,0,0,0,-1,2,3,4,5,7,9,10,15,17,19,23,20,0,10,30,40,50, 20,1,23,3,5, 150,4])
-//                    .frame(width: UIScreen.main.bounds.width, height: 100)
+                SpeedometerView(speed: self.viewModel.speed)
                 
                 HStack {
                     Text("Max speed")
@@ -44,10 +48,15 @@ struct SpeedView: View {
 
 struct SpeedView_Previews: PreviewProvider {
     static var previews: some View {
-        SpeedView(navBarHidden: .constant(true))
+        SpeedView(
+            viewModel: SpeedViewModel(),
+            navBarHidden: .constant(true)
+        )
     }
 }
 
+
+// TODO
 struct SpeedChart: View {
     var points: [Double]
     

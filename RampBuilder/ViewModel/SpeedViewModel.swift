@@ -12,6 +12,8 @@ import CoreLocation
 
 class SpeedViewModel: NSObject, ObservableObject {
     private var locationManager: CLLocationManager = CLLocationManager()
+    
+    var objectWillChange = PassthroughSubject<Void, Never>()
 
     @Published var status: CLAuthorizationStatus? {
       willSet { objectWillChange.send() }
@@ -34,7 +36,9 @@ class SpeedViewModel: NSObject, ObservableObject {
     
     var locationList: [Double] = []
     
-    @Published var speed: Double = 0
+    @Published var speed: Double = 0 {
+      willSet { objectWillChange.send() }
+    }
         
     var maxSpeed: Double = 0
     var formattedMaxSpeed: String {
@@ -108,6 +112,6 @@ extension SpeedViewModel: CLLocationManagerDelegate {
         
         self.locationList.append(speed)
     
-        print(self.locationList.last ?? "nope")
+        print(speed)
     }
 }
