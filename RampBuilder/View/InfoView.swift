@@ -39,6 +39,16 @@ struct InfoView: View {
             
             Section {
                 HStack {
+                    Button(action: {
+                        let formattedString = "https://mads2ez.github.io/rampbuilderapp/privacypolicy"
+                        guard let url = URL(string: formattedString) else { return }
+                        UIApplication.shared.open(url)
+                    }) {
+                        Text("Privacy Policy")
+                    }
+                }
+                
+                HStack {
                     Text("Version")
                     Spacer()
                     Text(getAppVersion()).foregroundColor(Color.gray)

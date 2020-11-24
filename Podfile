@@ -6,6 +6,6 @@ target 'RampBuilder' do
   use_modular_headers!
 
   # Pods for RampBuilder
-  pod 'Amplitude', '~> 5.1.0'
+  pod 'Amplitude', '~> 7.2.0'
 
 end

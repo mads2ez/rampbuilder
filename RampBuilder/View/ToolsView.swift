@@ -34,6 +34,7 @@ struct ToolsView: View {
             .padding(.horizontal)
             .padding(.leading, 14)
             .padding(.top, 56)
+            .padding(.bottom)
     }
     
     
