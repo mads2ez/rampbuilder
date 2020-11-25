@@ -35,6 +35,7 @@
 		D697C5E923DA30AA00F8FE4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D697C5E823DA30AA00F8FE4A /* Assets.xcassets */; };
 		D697C5EC23DA30AA00F8FE4A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D697C5EB23DA30AA00F8FE4A /* Preview Assets.xcassets */; };
 		D697C5EF23DA30AA00F8FE4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D697C5ED23DA30AA00F8FE4A /* LaunchScreen.storyboard */; };
+		D6C22BCE256DB07D00E7EB37 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C22BCD256DB07D00E7EB37 /* HelpView.swift */; };
 		D6C3936623DA388B0029F81F /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C3936523DA388B0029F81F /* Calculator.swift */; };
 		D6C3936B23DA39110029F81F /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C3936A23DA39110029F81F /* Helpers.swift */; };
 		D6C3936F23DA3B4A0029F81F /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C3936E23DA3B4A0029F81F /* PickerView.swift */; };
@@ -93,6 +94,7 @@
 		D697C5EB23DA30AA00F8FE4A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D697C5EE23DA30AA00F8FE4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D697C5F023DA30AA00F8FE4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6C22BCD256DB07D00E7EB37 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		D6C3936523DA388B0029F81F /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		D6C3936A23DA39110029F81F /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		D6C3936E23DA3B4A0029F81F /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				D61334D9248EBDE800DCB914 /* SpeedometerView.swift */,
 				D64C2DF72488364C00A4454C /* AngleView.swift */,
 				D62CF2242459EB8E0097A69E /* InfoView.swift */,
+				D6C22BCD256DB07D00E7EB37 /* HelpView.swift */,
 				D62CF2222459EB8E0097A69E /* BlueprintView.swift */,
 			);
 			path = View;
@@ -422,6 +425,7 @@
 				D6C3936B23DA39110029F81F /* Helpers.swift in Sources */,
 				D62244622474828200C5A260 /* Buttons.swift in Sources */,
 				D62CF22F2459EB8E0097A69E /* InputView.swift in Sources */,
+				D6C22BCE256DB07D00E7EB37 /* HelpView.swift in Sources */,
 				D62CF22B2459EB8E0097A69E /* GapView.swift in Sources */,
 				D64C2DF82488364C00A4454C /* AngleView.swift in Sources */,
 				D64C2DFA2488376700A4454C /* AngleViewModel.swift in Sources */,

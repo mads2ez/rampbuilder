@@ -32,6 +32,7 @@ class GapViewModel: ObservableObject {
     
     @Published var inputShown: Bool = false
     @Published var infoShown: Bool = false
+    @Published var helpShown: Bool = false
     
     var formattedTakeoffHeight: String {
         let height = Measurement(value: gapParams.takeoff.height, unit: UnitLength.meters)
@@ -108,6 +109,10 @@ extension GapViewModel {
         return inputView
     }
     
+    var helpView: some View {
+        let helpView = HelpView()
+        return helpView
+    }
 }
 
 extension GapViewModel {
@@ -121,5 +126,11 @@ extension GapViewModel {
         self.infoShown = true
         
         AnalyticsManager.instance.logEvent("Info button pressed")
+    }
+    
+    func openHelpView() {
+        self.helpShown = true
+        
+        AnalyticsManager.instance.logEvent("Help button pressed")
     }
 }

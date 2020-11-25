@@ -20,7 +20,7 @@ struct BlueprintView: View {
             // grid
             Rectangle()
                 .stroke(self.gridColor)
-            
+
             ForEach(0..<Int(geometry.size.height / self.calcStep(geometry.size)), id: \.self) { line in
                 Group {
                     Path { path in

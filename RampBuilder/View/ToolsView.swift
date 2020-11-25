@@ -12,6 +12,8 @@ struct ToolsView: View {
     
     @State var selection: String? = nil
     @State private var navBarHidden = false
+    @State var infoShown = false
+    
     var speedViewModel = SpeedViewModel()
     
     func navBar() -> some View {
@@ -22,14 +24,22 @@ struct ToolsView: View {
             
             Spacer()
             
-            Button(action: { self.selection = "Info" }, label: {
-                Image(systemName: "info")
-            })
-                .buttonStyle(RampCircleButtonStyle())
+//            Button(action: { self.selection = "Info" }, label: {
+//                Image(systemName: "info")
+//            })
+//                .buttonStyle(RampCircleButtonStyle())
+//
+//            NavigationLink(destination: InfoView(navBarHidden: self.$navBarHidden), tag: "Info", selection: $selection) {
+//                EmptyView()
+//            }
             
-            NavigationLink(destination: InfoView(navBarHidden: self.$navBarHidden), tag: "Info", selection: $selection) {
-                EmptyView()
-            }
+            Button(action: { self.infoShown = true }, label: {
+                Image(systemName: "info")
+                })
+                .buttonStyle(RampCircleButtonStyle())
+                .sheet(isPresented: $infoShown, content: {
+                    InfoView()
+                })
         }
             .padding(.horizontal)
             .padding(.leading, 14)

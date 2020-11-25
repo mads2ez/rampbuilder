@@ -33,7 +33,7 @@ struct GapView: View {
                 landingCard2()
                 
                 gapCard()
-//
+                
                 stiffnessCard()
             }
         }
@@ -49,18 +49,18 @@ extension GapView {
             
             Spacer()
             
-//            Button(action: { self.viewModel.openInfoView() }, label: {
-//                Image(systemName: "info")
-//                })
-//                .buttonStyle(RampCircleButtonStyle())
-//                .sheet(isPresented: self.$viewModel.infoShown, onDismiss: self.viewModel.refresh, content: {
-//                    self.viewModel.infoView
-//                })
+            Button(action: { self.viewModel.openHelpView() }, label: {
+                Image(systemName: "questionmark")
+                })
+                .buttonStyle(RampCircleButtonStyle())
+                .sheet(isPresented: self.$viewModel.helpShown, content: {
+                        self.viewModel.helpView
+                })
         }
         .padding(.horizontal)
         .padding(.leading, 14)
         .padding(.top, 56)
-//        .padding(.bottom)
+        .padding(.bottom)
     }
     
     func blueprintView() -> some View {

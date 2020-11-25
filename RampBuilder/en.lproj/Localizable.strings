@@ -35,7 +35,7 @@
 
 // ToolsVIew
 "Tools" = "Tools";
-"Measure angle with device level sensor" = "Measure angle using device level sensor";
+"Measure angle with device level sensor" = "Measure angle using device orientation sensor";
 "Measure speed with device location service" = "Measure speed using device";
 "Level" = "Level";
 "Speedometer" = "Speedometer";
@@ -49,3 +49,12 @@
 "RampBuilder is a tool for pre-calculation of the ramp dimensions and jump length. Be cautious, these calculations do not take into account riding technique, wind, and other factors. Always evaluate your skills and wear a helmet. Ride more, stay safe!" = "RampBuilder is a tool for pre-calculation of the ramp dimensions and jump length. Be cautious, these calculations do not take into account riding technique, wind, and other factors. Always evaluate your skills and wear a helmet. Ride more, stay safe!";
 "Contact a developer" = "Contact a developer";
 "Version" = "Version";
+
+// HelpView
+"helpViewTakeoffTitle" = "Takeoff";
+"helpViewTakeoffText" = "A ramp used for jumping with your BMX or skateboard.
+Takeoff Height - a height of a ramp, 0 to 10 meters. Takeoff Angle is the angle of the highest point of the kicker relative to the ground, 0° to 89°";
+"helpViewLadingTitle" = "Landing";
+"helpViewLandingText" = "The landing should be tall and wide to land softly. The table is a flat surface on top of the landing, which can't be more than a gap";
+"helpViewGapTitle" = "Gap and Speed";
+"helpViewGapText" = "The gap is the distance between takeoff and landing, 0 to 25 meters. Speed at the takeoff - 0 to 70 km per hour";
