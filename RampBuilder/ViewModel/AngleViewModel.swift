@@ -31,6 +31,6 @@ class AngleViewModel: ObservableObject {
     }
     
     func perform() {
-        AnalyticsManager.instance.logEvent("AngleView shown")
+        AnalyticsManager.instance.logEvent("AngleView opened")
     }
 }

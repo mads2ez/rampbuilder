@@ -122,12 +122,6 @@ extension GapViewModel {
         AnalyticsManager.instance.logEvent("Edit button pressed")
     }
     
-    func openInfoView() {
-        self.infoShown = true
-        
-        AnalyticsManager.instance.logEvent("Info button pressed")
-    }
-    
     func openHelpView() {
         self.helpShown = true
         

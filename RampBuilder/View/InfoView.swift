@@ -8,8 +8,19 @@
 
 import SwiftUI
 
+class InfoViewModel {
+    func logEvent(_ event: String) {
+        AnalyticsManager.instance.logEvent(event)
+    }
+}
+
 struct InfoView: View {
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
+    var viewModel: InfoViewModel
+    
+    init() {
+        self.viewModel = InfoViewModel()
+    }
     
     var body: some View {
         NavigationView {
@@ -24,6 +35,8 @@ struct InfoView: View {
                         let formattedString = "mailto:maxim.sivtsev@icloud.com"
                         guard let url = URL(string: formattedString) else { return }
                         UIApplication.shared.open(url)
+                        
+                        self.viewModel.logEvent("Contact developer pressed")
                     }) {
                        Text("Contact a developer")
                     }
@@ -36,6 +49,8 @@ struct InfoView: View {
                             let formattedString = "https://mads2ez.github.io/rampbuilderapp/privacypolicy"
                             guard let url = URL(string: formattedString) else { return }
                             UIApplication.shared.open(url)
+                            
+                            self.viewModel.logEvent("Privacy Policy pressed")
                         }) {
                             Text("Privacy Policy")
                         }
@@ -59,7 +74,7 @@ struct InfoView: View {
                         Text("Dismiss")
                     }))
                 .onAppear() {
-                    self.logEvent()
+                    self.viewModel.logEvent("InfoView opened")
                 }
         }
     }
@@ -68,9 +83,7 @@ struct InfoView: View {
         return UIApplication.appVersion ?? "unknown"
     }
     
-    func logEvent() {
-        AnalyticsManager.instance.logEvent("InfoVIew opened")
-    }
+    
 }
 
 struct InfoView_Previews: PreviewProvider {

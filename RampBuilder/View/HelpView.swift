@@ -96,15 +96,15 @@ struct HelpView: View {
                     } // scrollview
                 }
             }
-            .navigationBarTitle("", displayMode: .inline)
-            .navigationBarItems(
-                leading:
-                Button(action: {
-                    self.presentationMode.wrappedValue.dismiss()
-                }, label: {
-                    Text("Dismiss")
-                        .foregroundColor(Color("accent"))
-                }))
+                .navigationBarTitle("", displayMode: .inline)
+                .navigationBarItems(
+                    leading:
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        Text("Dismiss")
+                            .foregroundColor(Color("accent"))
+                    }))
         }
     }
 }
