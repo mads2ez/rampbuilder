@@ -103,6 +103,7 @@ struct HelpView: View {
                     self.presentationMode.wrappedValue.dismiss()
                 }, label: {
                     Text("Dismiss")
+                        .foregroundColor(Color("accent"))
                 }))
         }
     }

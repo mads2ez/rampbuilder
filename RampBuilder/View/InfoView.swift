@@ -11,14 +11,6 @@ import SwiftUI
 struct InfoView: View {
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
     
-//    init() {
-//        UITableView.appearance().backgroundColor = UIColor(named: "bg")
-//
-////        self._navBarHidden = navBarHidden
-//    }
-
-//    @Binding var navBarHidden: Bool
-    
     var body: some View {
         NavigationView {
             List {
@@ -58,7 +50,7 @@ struct InfoView: View {
                 }
             }
                 .listStyle(GroupedListStyle())
-                .navigationBarTitle("Info", displayMode: .inline)
+                .navigationBarTitle("", displayMode: .inline)
                 .navigationBarItems(
                     leading:
                     Button(action: {
@@ -68,7 +60,6 @@ struct InfoView: View {
                     }))
                 .onAppear() {
                     self.logEvent()
-    //                self.navBarHidden = false
                 }
         }
     }

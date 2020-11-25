@@ -130,6 +130,7 @@ struct InputView: View {
                         self.presentationMode.wrappedValue.dismiss()
                     }, label: {
                         Text("Cancel")
+                            .foregroundColor(Color("accent"))
                     }))
         }
     }
