@@ -68,3 +68,35 @@ struct RampCircleButtonStyle: ButtonStyle {
             )
     }
 }
+
+struct FullWidthButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .contentShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
+            .padding()
+            .frame(maxWidth: .infinity)
+            .foregroundColor(configuration.isPressed ? .secondary : .accentColor)
+            .font(.system(size: 18, weight: .medium))
+            .background(
+                Group {
+                    if configuration.isPressed {
+                        RoundedRectangle(cornerRadius: 25, style: .continuous)
+                            .fill(Color("bg"))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 25, style: .continuous)
+                                    .stroke(Color.black, lineWidth: 4)
+                                    .blur(radius: 4)
+                                    .offset(x: 2, y: 2)
+                                    .mask(RoundedRectangle(cornerRadius: 25, style: .continuous).fill(LinearGradient(gradient: Gradient(colors: [Color.black, Color.clear]), startPoint: .top, endPoint: .bottom)))
+                            )
+                    } else {
+                        RoundedRectangle(cornerRadius: 25, style: .continuous)
+                            .fill(Color(UIColor.tertiarySystemBackground))
+//                            .shadow(radius: 5, x: 0, y: 5)
+                            .shadow(color: Color("shadow1"), radius: 5, x: -5, y: -5)
+                            .shadow(color: Color("shadow2"), radius: 5, x: 5, y: 5)
+                    }
+                }
+            )
+            .padding(.horizontal)
+    }}

@@ -101,7 +101,7 @@ struct InputView: View {
                         GapPickerView(index: self.$viewModel.landingAngle, values: viewModel.possibleAngleRange)
                     }
                 }
-                }
+            }
                 
             HStack {
                 Button(action: {

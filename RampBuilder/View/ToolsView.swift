@@ -44,7 +44,7 @@ struct ToolsView: View {
             .padding(.horizontal)
             .padding(.leading, 14)
             .padding(.top, 56)
-            .padding(.bottom)
+            .padding(.bottom, 30)
     }
     
     
@@ -128,37 +128,13 @@ struct ToolsView: View {
                 .navigationBarTitle("")
         }
     }
-    
-    
-//    fileprivate func listView() -> some View {
-    //        return List {
-    //            Section(footer: Text("Measure angles and speed with device sensors")) {
-    //                NavigationLink(destination: AngleView()) {
-    //                    Image(systemName: "slash.circle")
-    //                        .foregroundColor(Color.blue)
-    //                    Text("Level")
-    //                }
-    //                NavigationLink(destination: SpeedView()) {
-    //                    Image(systemName: "gauge")
-    //                        .foregroundColor(Color.blue)
-    //                    Text("Speedometer")
-    //                }
-    //            }
-    //            Section {
-    //                NavigationLink(destination: InfoView(navBarHidden: self.$navBarHidden)) {
-    //                    Image(systemName: "info.circle")
-    //                        .foregroundColor(Color.blue)
-    //                    Text("About")
-    //                }
-    //            }
-    //        }
-    //        .listStyle(GroupedListStyle())
-    //    }
 }
 
 struct ToolsView_Previews: PreviewProvider {
     static var previews: some View {
-        ToolsView()
-            .environment(\.locale, .init(identifier: "en"))
+        Group {
+            ToolsView()
+                .environment(\.locale, .init(identifier: "en"))
+        }
     }
 }

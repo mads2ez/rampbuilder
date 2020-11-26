@@ -37,7 +37,7 @@
 
 // ToolsVIew
 "Tools" = "Tools";
-"Measure angle with device level sensor" = "Measure angle using device orientation sensor";
+"Measure angle with device level sensor" = "Measure angle using orientation sensor";
 "Measure speed with device location service" = "Measure speed using device";
 "Level" = "Level";
 "Speedometer" = "Speedometer";
@@ -48,8 +48,8 @@
 
 // InfoView
 "RampBuilder is a tool for pre-calculation of the ramp dimensions and jump length. Be cautious, these calculations do not take into account riding technique, wind, and other factors. Always evaluate your skills and wear a helmet. Ride more, stay safe!" = "RampBuilder is a tool for pre-calculation of the ramp dimensions and jump length. Be cautious, these calculations do not take into account riding technique, wind, and other factors. Always evaluate your skills and wear a helmet. Ride more, stay safe!";
-"Contact a developer" = "Contact a developer";
-"Version" = "Version";
+"contactButton" = "Contact the developer";
+"appVersion" = "Version";
 
 // HelpView
 "helpViewTakeoffTitle" = "Takeoff";

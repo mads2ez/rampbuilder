@@ -55,9 +55,9 @@ struct HelpView: View {
                             ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
                                 
                                 RoundedRectangle(cornerRadius: 25, style: .continuous)
-                                    .fill(Color.white)
-                                    .shadow(color: Color("shadow1"), radius: 5, x: -5, y: -5)
-                                    .shadow(color: Color("shadow2"), radius: 5, x: 5, y: 5)
+                                    .fill(Color(UIColor.tertiarySystemBackground))
+                                    .shadow(color: Color("shadow1"), radius: 2, x: -2, y: -2)
+                                    .shadow(color: Color("shadow2"), radius: 2, x: 2, y: 2)
                                 
                                 VStack(alignment: .leading) {
                                     
@@ -72,7 +72,7 @@ struct HelpView: View {
                                             Image(item.image!)
                                                 .resizable()
                                                 .aspectRatio(contentMode: .fit)
-                                                .frame(maxHeight: 55)
+                                                .frame(maxHeight: 50)
                                                 .clipped()
                                         }
                                     }
@@ -111,6 +111,6 @@ struct HelpView: View {
 
 struct HelpView_Previews: PreviewProvider {
     static var previews: some View {
-        HelpView()
+        HelpView().environment(\.colorScheme, .light)
     }
 }

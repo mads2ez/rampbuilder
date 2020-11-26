@@ -186,11 +186,11 @@
 			children = (
 				D62CF2262459EB8E0097A69E /* GapPickerView.swift */,
 				D6C3938023DA3CB90029F81F /* BlurView.swift */,
+				D62244612474828200C5A260 /* Buttons.swift */,
 				D65CC56524424218002955C4 /* CardView.swift */,
 				D6C3937423DA3B960029F81F /* Modal.swift */,
 				D6C3936E23DA3B4A0029F81F /* PickerView.swift */,
 				D65CC56724424268002955C4 /* HeaderView.swift */,
-				D62244612474828200C5A260 /* Buttons.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -661,6 +661,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"RampBuilder/Preview Content\"";
 				DEVELOPMENT_TEAM = 9NA6X48DCR;
 				ENABLE_PREVIEWS = YES;
@@ -676,7 +677,7 @@
 				PRODUCT_NAME = "Ramp Builder";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -687,6 +688,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"RampBuilder/Preview Content\"";
 				DEVELOPMENT_TEAM = 9NA6X48DCR;
 				ENABLE_PREVIEWS = YES;
@@ -702,7 +704,7 @@
 				PRODUCT_NAME = "Ramp Builder";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
